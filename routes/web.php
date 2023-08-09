@@ -1,8 +1,8 @@
 <?php
 
 //DASHBOARD
-
 use App\Http\Livewire\Dashboard\Index;
+use App\Http\Livewire\Events\Events;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Index::class);
+Route::get('/', Index::class)->name('index');
+Route::get('/events', Events::class)->name('events');
