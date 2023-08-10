@@ -1,5 +1,5 @@
 
-<header class="fixed z-20 top-0 flex bg-white w-full flex-row justify-around items-center flex-shrink-0 p-4">
+<header class="fixed z-20 top-0 flex bg-white opacity-75 w-full flex-row justify-around items-center flex-shrink-0 p-4">
 
     <div><h1>Dashboard</h1></div>
 <form class="flex items-center">

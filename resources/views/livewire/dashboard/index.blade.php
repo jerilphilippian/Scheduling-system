@@ -1,7 +1,7 @@
 <div>
 
 
-    <div class="flex flex-1 flex-col px-24">
+    <div class="flex flex-1 flex-col px-24 bg-[url('/img/coverphoto.jpg')]">
         <!-- Main -->
         <main class="flex flex-col px-8 flex-1 ">
           <div class="grid justify-between grid-cols-1 gap-6 mb-6 md:grid-cols-1 xl:grid-cols-3">

@@ -15,7 +15,7 @@
     @livewireStyles
 
 </head>
-<body class="py-24">
+<body class="py-24 bg-[url('/img/coverphoto.jpg')]">
     {{$slot}}
 
 
