@@ -40,7 +40,7 @@
 
         <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak >
             <div class="container grid grid-cols-1 lg:grid-cols-[1fr_450px] gap-2">
-                <div class="overflow-hidden bg-white rounded-lg shadow">
+                <div class="overflow-hidden bg-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-lg">
                     <div class="flex items-center justify-between px-6 py-2">
                         <div>
                             <span x-text="MONTH_NAMES[month]" class="text-lg font-bold text-gray-800"></span>

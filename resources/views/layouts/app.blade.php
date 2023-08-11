@@ -17,9 +17,9 @@
     @livewireStyles
 
 </head>
-<body class="py-24 bg-[url('/img/coverphoto.jpg')]">
+{{-- bg-[url('/img/coverphoto.jpg')] --}}
+<body class="py-24 bg-[#EEEDED]">
     {{$slot}}
-
 
     <!-- component -->
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');" @resize.window="watchScreen()">

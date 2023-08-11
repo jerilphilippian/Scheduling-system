@@ -161,16 +161,8 @@
 
       <!-- User avatar -->
       <div class="relative flex items-center flex-shrink-0 p-2" x-data="{ isOpen: false }">
-        <button
-          @click="isOpen = !isOpen; $nextTick(() => {isOpen ? $refs.userMenu.focus() : null})"
-          class="transition-opacity rounded-lg opacity-80 hover:opacity-100 focus:outline-none focus:ring focus:bg-[#860909] focus:ring-offset-white focus:ring-offset-2"
-        >
-          <img
-            class="w-10 h-10 rounded-lg shadow-md"
-            src="{{asset('img/philippian-icon-transparent.png')}}"
-            alt="Ahmed Kamel"
-          />
-          <span class="sr-only">User menu</span>
+        <button  @click="isOpen = !isOpen;" class="group py-2 px-3 transition-colors rounded-lg shadow-md hover:bg-[#860909] focus:outline-none">
+            <i class="text-lg fa-solid fa-gear text-[#6b7280] group-hover:text-white"></i>
         </button>
         <div
           x-show="isOpen"
