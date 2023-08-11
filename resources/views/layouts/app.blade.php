@@ -63,8 +63,8 @@
 
     <!-- Settings Panel -->
     <!-- Backdrop -->
-    <div x-show="isSettingsPanelOpen" class="fixed inset-0 bg-black bg-opacity-50" @click="isSettingsPanelOpen = false"
-        aria-hidden="true"></div>
+    {{-- <div x-show="isSettingsPanelOpen" class="fixed inset-0 bg-black bg-opacity-50" @click="isSettingsPanelOpen = false"
+        aria-hidden="true"></div> --}}
     <!-- Panel -->
 
 
@@ -170,7 +170,7 @@
     </script>
     @livewireScripts
 
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 </body>
-<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 
 </html>

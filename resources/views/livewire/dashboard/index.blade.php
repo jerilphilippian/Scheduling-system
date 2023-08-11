@@ -153,7 +153,7 @@
             <!--bar 1 event end-->
 
             <!--2nd box graph-->
-            <div class="w-full col-span-2 mt-6 bg-white rounded-lg h-72"
+            <div class="w-full h-full col-span-2 mt-6 bg-white rounded-lg"
                 style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: flex; flex-direction: column;">
                 <p class="flex items-center justify-center px-5 my-3 font-medium text-gray-800"
                     style="white-space: pre-line;">Total Number Of Use Rooms Per Month</p>
