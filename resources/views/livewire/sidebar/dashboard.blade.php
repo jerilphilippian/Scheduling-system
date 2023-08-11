@@ -70,7 +70,7 @@
             >Your Profile</a
           >
 
-          <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+          {{-- <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a> --}}
 
           <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
         </div>
@@ -112,35 +112,19 @@
           </svg>
         </button>
         <!-- Messages button -->
-        <button
-          @click="(isSidebarOpen && currentSidebarTab == 'messagesTab') ? isSidebarOpen = false : isSidebarOpen = true; currentSidebarTab = 'messagesTab'"
-          class="p-2 transition-colors rounded-lg shadow-md hover:bg-[#860909] hover:text-white focus:outline-none focus:ring focus:bg-[#860909] focus:ring-offset-white focus:ring-offset-2"
-          :class="(isSidebarOpen && currentSidebarTab == 'messagesTab') ? 'text-white bg-[#860909]' : 'text-gray-500 bg-white'"
-        >
-          <span class="sr-only">Toggle message panel</span>
-          <svg
-            aria-hidden="true"
-            class="w-6 h-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-            />
-          </svg>
-        </button>
+
         <!-- Notifications button -->
         <button
           @click="(isSidebarOpen && currentSidebarTab == 'notificationsTab') ? isSidebarOpen = false : isSidebarOpen = true; currentSidebarTab = 'notificationsTab'"
           class="p-2 transition-colors rounded-lg shadow-md hover:bg-[#860909] hover:text-white focus:outline-none focus:ring focus:bg-[#860909] focus:ring-offset-white focus:ring-offset-2"
           :class="(isSidebarOpen && currentSidebarTab == 'notificationsTab') ? 'text-white bg-[#860909]' : 'text-gray-500 bg-white'"
         >
+        <span class="relative flex w-3 h-1">
+            <span class="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-sky-400"></span>
+  <span class="relative inline-flex w-3 h-3 rounded-full bg-sky-500"></span>
           <span class="sr-only">Toggle notifications panel</span>
+        </span>
+
           <svg
             aria-hidden="true"
             class="w-6 h-6"
@@ -175,13 +159,13 @@
           aria-orientation="vertical"
           aria-label="user menu"
         >
-          <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem"
+          <a href="{{route('profile')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem"
             >Your Profile</a
           >
 
-          <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+          {{-- <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a> --}}
 
-          <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+          <a href="#" data-modal-target="staticModal" data-modal-toggle="staticModal" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
         </div>
       </div>
     </nav>
@@ -295,7 +279,7 @@
           </a>
 
           <a
-            href=""
+            href="{{route('room')}}"
             class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] hover:text-white"
           >
             <span
@@ -321,7 +305,7 @@
           </a>
 
           <a
-            href=""
+            href="{{route('user-management')}}"
             class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] hover:text-white"
           >
             <span
@@ -364,6 +348,32 @@
 
       <section x-show="currentSidebarTab == 'notificationsTab'" class="px-4 py-6">
         <h2 class="text-xl">Notifications</h2>
+
+
+<div id="toast-message-cta" class="w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-400" role="alert">
+    <div class="flex">
+        <img class="w-8 h-8 rounded-full shadow-lg" src="{{asset('img/philippian-icon-transparent.png')}}" alt="Jese Leos image"/>
+        <div class="ml-3 text-sm font-normal">
+            <span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white">Jeril</span>
+            <div class="flex items-end justify-end">
+            <span class="relative w-3 h-3">
+                <span class="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-sky-400"></span>
+                <span class="relative inline-flex w-3 h-3 rounded-full bg-sky-500"></span>
+              </span>
+              </div>
+            <div class="mb-2 text-sm font-normal">Hi jeril is Invited you to join the room</div>
+            <a href="#" class="inline-flex px-2.5 py-1.5 text-xs font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800">Join</a>
+            <a href="#" class="inline-flex px-2.5 py-1.5 text-xs font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800">Decline</a>
+        </div>
+        <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white justify-center items-center flex-shrink-0 text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-message-cta" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
       </section>
     </div>
   </div>

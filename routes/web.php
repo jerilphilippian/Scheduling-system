@@ -12,7 +12,12 @@ use App\Http\Livewire\Events\MyEvents\Index as MyEventsIndex;
 use App\Http\Livewire\Events\MyEvents\View as MyEventView;
 use App\Http\Livewire\Events\View as EventsView;
 use App\Http\Livewire\Login\Login;
+use App\Http\Livewire\Events\Events;
+use App\Http\Livewire\UserManagement\Index as UserManagementIndex;
+use App\Http\Livewire\Room\Index as RoomIndex;
+use App\Http\Livewire\Profile\Index as ProfileIndex;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +62,7 @@ Route::prefix('approval')->name('approval.')->group(function () {
     Route::get('/', ApprovalIndex::class)->name('index');
     Route::get('/view', ApprovalView::class)->name('view');
 });
+Route::get('/events', Events::class)->name('events');
+Route::get('/user-management', UserManagementIndex::class)->name('user-management');
+Route::get('/room', RoomIndex::class)->name('room');
+Route::get('/profile', ProfileIndex::class)->name('profile');
