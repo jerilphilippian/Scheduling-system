@@ -1,9 +1,7 @@
-<div>
-
-
-    <div class="flex flex-1 flex-col px-24 bg-[url('/img/coverphoto.jpg')]">
+<div class="px-5 sm:pl-24">
+    <div class="flex flex-1 flex-col bg-[#EEEDED]">
         <!-- Main -->
-        <main class="flex flex-col px-8 flex-1 ">
+        <main class="flex flex-col flex-1 ">
           <div class="grid justify-between grid-cols-1 gap-6 mb-6 md:grid-cols-1 xl:grid-cols-3">
               <div class="bg-white" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);">
                   <div class="flex justify-between mx-3">
@@ -88,14 +86,14 @@
               </div>
           </div>
           <!--2nd box graph-->
-          <div class="w-full col-span-2 mt-6 bg-white h-72 rounded-lg"
+          <div class="w-full col-span-2 mt-6 bg-white rounded-lg h-72"
           style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: flex; flex-direction: column;">
           <p class="flex items-center px-5 my-3 font-medium text-gray-800" style="white-space: pre-line;">Most applied Job Positions</p>
           <div id="chart">
           </div>
       </div>
 
-      <div class="w-full col-span-2 mt-6 bg-white h-72 rounded-lg"
+      <div class="w-full col-span-2 mt-6 bg-white rounded-lg h-72"
       style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: flex; flex-direction: column;">
       <p class="flex items-center px-5 my-3 font-medium text-gray-800" style="white-space: pre-line;">Most applied Job Positions</p>
       <div id="chart">
