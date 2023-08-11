@@ -22,7 +22,7 @@
 </head>
 {{-- bg-[url('/img/coverphoto.jpg')] --}}
 
-<body class="py-24 bg-[#EEEDED]">
+<body class="py-24 bg-[#EEEDED]" x-data="{isSettingsPanelOpen:false}">
     {{ $slot }}
 
     <!-- component -->
@@ -69,6 +69,8 @@
 
 
 
+
+    <!-- Author links -->
 
     <script>
         const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];

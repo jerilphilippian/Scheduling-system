@@ -62,7 +62,7 @@ Route::prefix('approval')->name('approval.')->group(function () {
     Route::get('/', ApprovalIndex::class)->name('index');
     Route::get('/view', ApprovalView::class)->name('view');
 });
-Route::get('/events', Events::class)->name('events');
+// Route::get('/events', Events::class)->name('events');
 Route::get('/user-management', UserManagementIndex::class)->name('user-management');
 Route::get('/room', RoomIndex::class)->name('room');
 Route::get('/profile', ProfileIndex::class)->name('profile');
