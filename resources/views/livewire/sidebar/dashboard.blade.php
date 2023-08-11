@@ -1,7 +1,7 @@
 
 
 
-<div class="z-50 top-0 left-0 fixed flex transition-all">
+<div class="fixed top-0 left-0 z-50 flex transition-all">
     <div
       x-show="isSidebarOpen"
       @click="isSidebarOpen = false"
@@ -80,7 +80,7 @@
     <!-- Left mini bar -->
     <nav
       aria-label="Options"
-      class="h-screen z-20 flex-col items-center flex-shrink-0 hidden w-16 py-4 bg-white border-r-2 border-indigo-100 shadow-md sm:flex rounded-tr-3xl rounded-br-3xl"
+      class="z-20 flex-col items-center flex-shrink-0 hidden w-16 h-screen py-4 bg-white border-r-2 border-indigo-100 shadow-md sm:flex rounded-tr-3xl rounded-br-3xl"
     >
       <!-- Logo -->
       <div class="flex-shrink-0 py-4">
@@ -231,8 +231,8 @@
 
         <!-- Links mobile -->
         <div class="flex-1 px-4 space-y-2 overflow-hidden hover:overflow-auto">
-          <a href="{{route('index')}}" class="flex items-center w-full space-x-2 text-white bg-[#860909] rounded-lg">
-            <span aria-hidden="true" class="p-2 bg-[#860909] rounded-lg">
+          <a href="{{route('index')}}" class="flex items-center w-full space-x-2 text-black hover:text-white hover:bg-[#860909]  {{ request()->routeIs('index') ? 'text-white bg-[#860909] ' : '' }} rounded-lg">
+            <span aria-hidden="true" class="group-hover:bg-[#860909] p-2 rounded-lg">
               <svg
                 class="w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
@@ -248,11 +248,11 @@
                 />
               </svg>
             </span>
-            <span>Home</span>
+            <span>Dashboard</span>
           </a>
           <a
-            href="{{route('events')}}"
-            class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] hover:text-white"
+            href="{{route('events.index')}}"
+            class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] {{ request()->routeIs('events.index') ? 'text-white bg-[#860909] ' : '' }} hover:text-white"
           >
             <span
               aria-hidden="true"
@@ -277,8 +277,8 @@
           </a>
 
           <a
-            href=""
-            class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] hover:text-white"
+            href="{{route('approval.index')}}"
+            class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] hover:text-white {{ request()->routeIs('approval.index') ? 'text-white bg-[#860909] ' : '' }}"
           >
             <span
               aria-hidden="true"
