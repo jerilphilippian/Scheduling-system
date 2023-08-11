@@ -232,9 +232,10 @@
           >
             <span
               aria-hidden="true"
-              class="p-2 transition-colors rounded-lg group-hover:bg-[#860909] group-hover:text-white"
+              class="p-2 transition-colors rounded-lg group-hover:bg-[#860909] group-hover:text-white flex items-center justify-center"
             >
-              <svg
+                <i class="text-lg fa-solid fa-calendar"></i>
+              {{-- <svg
                 class="w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -247,7 +248,7 @@
                   stroke-width="2"
                   d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
                 />
-              </svg>
+              </svg> --}}
             </span>
             <span>Events</span>
           </a>
@@ -260,7 +261,8 @@
               aria-hidden="true"
               class="p-2 transition-colors rounded-lg group-hover:bg-[#860909] group-hover:text-white"
             >
-              <svg
+            <i class="text-lg fa-solid fa-calendar-check"></i>
+              {{-- <svg
                 class="w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -273,7 +275,7 @@
                   stroke-width="2"
                   d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
                 />
-              </svg>
+              </svg> --}}
             </span>
             <span>Approval</span>
           </a>
@@ -286,7 +288,7 @@
               aria-hidden="true"
               class="p-2 transition-colors rounded-lg group-hover:bg-[#860909] group-hover:text-white"
             >
-              <svg
+              {{-- <svg
                 class="w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -299,7 +301,8 @@
                   stroke-width="2"
                   d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
                 />
-              </svg>
+              </svg> --}}
+              <i class="text-lg fa-solid fa-house"></i>
             </span>
             <span>Room</span>
           </a>
@@ -312,7 +315,7 @@
               aria-hidden="true"
               class="p-2 transition-colors rounded-lg group-hover:bg-[#860909] group-hover:text-white"
             >
-              <svg
+              {{-- <svg
                 class="w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -325,7 +328,8 @@
                   stroke-width="2"
                   d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
                 />
-              </svg>
+              </svg> --}}
+              <i class="text-lg fa-solid fa-user-group"></i>
             </span>
             <span>User Management</span>
           </a>
