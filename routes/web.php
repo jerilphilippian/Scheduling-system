@@ -42,25 +42,25 @@ Route::get('/dashboard', function(){
 // all events
 Route::prefix('events')->name('events.')->group(function () {
     Route::get('/', EventsIndex::class)->name('index');
-    Route::get('/view', EventsView::class)->name('view');
+    Route::get('/view/{id}', EventsView::class)->name('view');
 });
 
 // my events
 Route::prefix('my-events')->name('my-events.')->group(function () {
     Route::get('/', MyEventsIndex::class)->name('index');
-    Route::get('/view', MyEventView::class)->name('view');
+    Route::get('/view/{id}', MyEventView::class)->name('view');
 });
 
 // invitations
 Route::prefix('invitation')->name('invitation.')->group(function () {
     Route::get('/', InvitationIndex::class)->name('index');
-    Route::get('/view', InvitationView::class)->name('view');
+    Route::get('/view/{id}', InvitationView::class)->name('view');
 });
 
 // approval
 Route::prefix('approval')->name('approval.')->group(function () {
     Route::get('/', ApprovalIndex::class)->name('index');
-    Route::get('/view', ApprovalView::class)->name('view');
+    Route::get('/view/{id}', ApprovalView::class)->name('view');
 });
 // Route::get('/events', Events::class)->name('events');
 Route::get('/user-management', UserManagementIndex::class)->name('user-management');

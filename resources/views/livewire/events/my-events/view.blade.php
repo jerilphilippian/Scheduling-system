@@ -26,29 +26,29 @@
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-[450px_1fr] gap-2">
         <div class="p-4 bg-white rounded shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
-            <h3 class="mb-3 text-lg font-bold">Digital Marketing Summit</h3>
+            <h3 class="mb-3 text-lg font-bold">{{$eventTitle}}</h3>
             <div class="">
                 <div class="mb-3">
                     <div class="flex flex-col">
                         <div class="flex items-center gap-3 mb-2 text-sm text-gray-600">
                             <p class="font-bold">Event Organizer:</p>
-                            <p>IT Department</p>
+                            <p>{{$eventOrganizer}}</p>
                         </div>
                         <div class="flex gap-5 item-center" >
                             <p class="text-sm text-gray-600">
                                 <i class="fa-solid fa-calendar-days"></i>
-                                August 02, 2023
+                                {{$eventDate}}
                             </p>
                             <p class="text-sm text-gray-600">
                                 <i class="fa-solid fa-clock"></i>
-                                12:00 AM - 1:00 PM
+                                {{$eventStartTime}} - {{$eventEndTime}}
                             </p>
                         </div>
                     </div>
                 </div>
                 <div>
                     <p>
-                        Join us at this year's Digital Marketing Summit, where industry experts and thought leaders will gather to share cutting-edge strategies and insights that will revolutionize your online presence and drive unparalleled growth for your business.
+                        {{$eventDesc}}
                     </p>
                 </div>
             </div>

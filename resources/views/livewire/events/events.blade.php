@@ -129,7 +129,37 @@
                         </div>
                         <div>
                             <ul class="flex flex-col gap-3 ">
-                                <a href="{{route('events.view')}}" class="p-3 rounded hover:bg-gray-100">
+                                @forelse ($eventList as $event)
+                                    <a href="{{route('events.view', $event->id)}}" class="p-3 rounded hover:bg-gray-100">
+                                        <li class="flex gap-2">
+                                            <div class="w-[50px] h-[50px]">
+                                                <img
+                                                    src="https://images.pexels.com/photos/976866/pexels-photo-976866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                                    alt="sample image"
+                                                    class="object-cover w-full h-full"
+                                                >
+                                            </div>
+                                            <div class="flex flex-col">
+                                                <h4 class="flex-1 font-bold">{{$event->name}}</h4>
+                                                <div>
+                                                    <div class="flex items-center gap-4">
+                                                        <p class="text-sm text-gray-600">
+                                                            <i class="fa-solid fa-building-user"></i>
+                                                            {{$event->user->name}}
+                                                        </p>
+                                                        <p class="text-sm text-gray-600">
+                                                            <i class="fa-solid fa-clock"></i>
+                                                            {{\Carbon\Carbon::parse($event->start_time)->format('g:i A')}} - {{\Carbon\Carbon::parse($event->end_time)->format('g:i A')}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </a>
+                                @empty
+
+                                @endforelse
+                                {{-- <a href="{{route('events.view')}}" class="p-3 rounded hover:bg-gray-100">
                                     <li class="flex gap-2">
                                         <div class="w-[50px] h-[50px]">
                                             <img
@@ -154,33 +184,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                </a>
-                                <a href="{{route('events.view')}}" class="p-3 rounded hover:bg-gray-100">
-                                    <li class="flex gap-2">
-                                        <div class="w-[50px] h-[50px]">
-                                            <img
-                                                src="https://images.pexels.com/photos/976866/pexels-photo-976866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                                alt="sample image"
-                                                class="object-cover w-full h-full"
-                                            >
-                                        </div>
-                                        <div class="flex flex-col">
-                                            <h4 class="flex-1 font-bold">Digital Marketing Summit</h4>
-                                            <div>
-                                                <div class="flex items-center gap-4">
-                                                    <p class="text-sm text-gray-600">
-                                                        <i class="fa-solid fa-building-user"></i>
-                                                        IT Department
-                                                    </p>
-                                                    <p class="text-sm text-gray-600">
-                                                        <i class="fa-solid fa-clock"></i>
-                                                        12:00 AM - 1:00 PM
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </a>
+                                </a> --}}
                             </ul>
                         </div>
                     </div>
