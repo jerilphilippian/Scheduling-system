@@ -9,7 +9,7 @@ class Event extends Model
 {
     use HasFactory;
 
-    public function rooms(){
+    public function room(){
         return  $this->belongsTo(Room::class, 'room_id', 'id');
     }
 
