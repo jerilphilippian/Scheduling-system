@@ -21,7 +21,7 @@
 
 
         <div>
-            <div class="relative overflow-x-auto">
+            {{-- <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -92,13 +92,12 @@
                             </td>
                             <td class="px-6 py-4">
                                 <x-button href="{{route('approval.view')}}" dark label="View" />
-                                {{-- <x-button emerald label="Accept" />
-                                <x-button red label="Decline" /> --}}
                             </td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> --}}
+            <livewire:tables.livewire-table.approval-table />
         </div>
 
     </div>

@@ -20,5 +20,4 @@ class Event extends Model
     public function event_type(){
         return  $this->belongsTo(EventType::class, 'event_type_id', 'id');
     }
-
 }
