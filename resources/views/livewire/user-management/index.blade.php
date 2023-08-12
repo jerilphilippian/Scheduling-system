@@ -107,7 +107,7 @@ class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overf
 </div>
 
 <div class="flex flex-row gap-2 mt-4">
-<div class="w-28">
+{{-- <div class="w-28">
 <label for="countries"
 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
 <select id="countries"
@@ -124,7 +124,7 @@ class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:
 <option value="DE">9</option>
 <option value="DE">10</option>
 </select>
-</div>
+</div> --}}
 <div class="w-28">
 <label for="countries"
 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
