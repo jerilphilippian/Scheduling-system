@@ -30,7 +30,7 @@
         </div>
         <!-- MENUS -->
     </div>
-    <div class="grid grid-cols-1 lg:grid-cols-[450px_1fr] gap-2">
+    <div class="grid grid-cols-1 lg:grid-cols-[450px_1fr] gap-2 animate__animated animate__bounceInUp">
         <div class="p-4 bg-white rounded shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
             <h3 class="mb-3 text-lg font-bold">{{$eventTitle}}</h3>
             <div class="">

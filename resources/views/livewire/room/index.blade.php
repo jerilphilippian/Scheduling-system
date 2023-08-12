@@ -5,16 +5,15 @@
         <!-- Main -->
         <main class="flex flex-col flex-1 ">
                 <div class="w-full">
-                   <p class="text-2xl font-medium text-black">
-                      Room
-                   </p>
+                    <p class="text-black text-2xl"><a href="{{route('room')}}">Room</a></p>
                    <!-- BREADCRUMBS -->
                    <nav class="text-white">
                       <ol class="inline-flex gap-1 p-0 list-none">
                          <li class="flex items-end ">
-                            <p class="text-black"><a href="{{route('room')}}">Room</a></p>
+
                          </li>
                       </ol>
+                      {{-- animate__animated animate__bounceInUp --}}
                    </nav>
                    {{-- <!-- MENUS -->
                    <ul class="flex justify-around w-full p-3 mt-2 text-xs font-semibold tracking-wider text-red-900 bg-gray-100 rounded-md shadow md:w-1/3">
@@ -86,7 +85,7 @@
             <!-- Modal footer -->
             <div class="flex items-center justify-end p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                 <button data-modal-hide="staticModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
-                <x-button red label="Edit" data-modal-target="staticModal1" data-modal-toggle="staticModal1"/>
+                <x-button red label="Add Room" data-modal-target="staticModal1" data-modal-toggle="staticModal"/>
                                         </button>
             </div>
         </div>
@@ -276,7 +275,7 @@
             <!-- Modal footer -->
             <div class="flex items-center justify-end p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                 <button data-modal-hide="staticModal1" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
-                <x-button red label="Edit" data-modal-target="staticModal1" data-modal-toggle="staticModal1"/>
+                <x-button red label="Edit" data-modal-target="staticModal1" data-modal-toggle="staticModal1 "/>
                 </button>
             </div>
         </div>
