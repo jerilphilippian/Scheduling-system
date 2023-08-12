@@ -17,11 +17,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+  <script src="../path/to/flowbite/dist/datepicker.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/datepicker.min.js"></script>
 
         <style>
             @import url("https://fonts.googleapis.com/css2?family=Asap&display=swap");
@@ -100,7 +102,7 @@ reveal();
 </head>
 {{-- bg-[url('/img/coverphoto.jpg')] --}}
 
-<body class="py-24 bg-[#EEEDED]" x-data="{isSettingsPanelOpen:false}">
+<body class="py-24" style="background-image:linear-gradient(to left, rgba(255, 255, 255, 0.048), rgba(117, 19, 19, 0.761)),url('/img/coverphoto.jpg')" x-data="{isSettingsPanelOpen:false}">
     {{ $slot }}
 
     <!-- component -->
@@ -171,6 +173,10 @@ reveal();
                     data: [300, 700, 2000, 5000, 6000, 4000, 2000, 1000, 200, 100],
                     borderColor: "blue",
                     fill: false
+                },{
+                    data: [300, 800, 2500, 5400, 6400, 4400, 2400, 1400, 400, 400],
+                    borderColor: "yellow",
+                    fill: false
                 }]
             },
             options: {
@@ -182,29 +188,135 @@ reveal();
     </script>
 
     <script>
-        const ctx = document.getElementById('myChart');
 
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
-                    'October', 'November', 'December'
-                ],
-                datasets: [{
-                    label: '# of Events',
-                    data: [18, 24, 22, 20, 12, 19, 13, 15, 25, 30, 20, 18],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+
+        // const ctx = document.getElementById('myChart');
+
+        // new Chart(ctx, {
+        //     type: 'bar',
+        //     data: {
+        //         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+        //             'October', 'November', 'December'
+        //         ],
+        //         datasets: [{
+        //             label: '# of Events',
+        //             data: [18, 24, 22, 20, 12, 19, 13, 15, 25, 30, 20, 18],
+        //             borderWidth: 1
+        //         }]
+        //     },
+        //     options: {
+        //         scales: {
+        //             y: {
+        //                 beginAtZero: true
+        //             }
+        //         }
+        //     }
+        // });
     </script>
+
+<script>
+    // ApexCharts options and config
+    window.addEventListener("load", function() {
+      var options = {
+        series: [
+          {
+            name: "Preset",
+            color: "#d13030",
+            data: [ "1490", "1480", "1470", "1460", "1450", "1440","1420", "1420", "1620", "1820", "1420", "1650", "2120"],
+          },
+          {
+            name: "Previous",
+            data: [ "870", "860", "850", "840", "830", "820","788", "810", "866", "788", "1100", "1200"],
+            color: "#212020",
+          }
+        ],
+        chart: {
+          sparkline: {
+            enabled: false,
+          },
+          type: "bar",
+          width: "100%",
+          height: 400,
+          toolbar: {
+            show: false,
+          }
+        },
+        fill: {
+          opacity: 1,
+        },
+        plotOptions: {
+          bar: {
+            horizontal: true,
+            columnWidth: "100%",
+            borderRadiusApplication: "end",
+            borderRadius: 6,
+            dataLabels: {
+              position: "top",
+            },
+          },
+        },
+        legend: {
+          show: true,
+          position: "bottom",
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        tooltip: {
+          shared: true,
+          intersect: false,
+          formatter: function (value) {
+            return "$" + value
+          }
+        },
+        xaxis: {
+          labels: {
+            show: true,
+            style: {
+              fontFamily: "Inter, sans-serif",
+              cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+            },
+            formatter: function(value) {
+              return "$" + value
+            }
+          },
+          categories: ["January","February","March","April","May","June","July", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          axisTicks: {
+            show: false,
+          },
+          axisBorder: {
+            show: false,
+          },
+        },
+        yaxis: {
+          labels: {
+            show: true,
+            style: {
+              fontFamily: "Inter, sans-serif",
+              cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+            }
+          }
+        },
+        grid: {
+          show: true,
+          strokeDashArray: 4,
+          padding: {
+            left: 2,
+            right: 2,
+            top: -20
+          },
+        },
+        fill: {
+          opacity: 1,
+        }
+      }
+
+      if(document.getElementById("bar-chart") && typeof ApexCharts !== 'undefined') {
+        const chart = new ApexCharts(document.getElementById("bar-chart"), options);
+        chart.render();
+      }
+    });
+  </script>
 
     <script>
         const ctxx = document.getElementById('myChart-room');
@@ -251,6 +363,7 @@ reveal();
     @livewireScripts
 
     {{-- <script src="../path/to/flowbite/dist/flowbite.min.js"></script> --}}
+    @include('layouts.footer')
 </body>
 
 </html>

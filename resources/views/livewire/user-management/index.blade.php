@@ -1,5 +1,5 @@
 <div>
-<div class="flex flex-1 flex-col px-24 bg-[url('/img/coverphoto.jpg')]">
+<div class="flex flex-1 flex-col px-24">
 <main class="flex flex-col flex-1 px-8 ">
 <div class="w-full">
 <p class="text-2xl font-medium text-black">
