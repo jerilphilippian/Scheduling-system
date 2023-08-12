@@ -1,8 +1,9 @@
 <div class="px-5 sm:pl-24">
+    <div class="capitalize text-2xl mb-7 font-mono font-bold animate__animated animate__bounceInLeft">Dashboard</div>
     <div class="flex flex-1 flex-col bg-[#EEEDED]">
         <!-- Main -->
         <main class="flex flex-col flex-1 ">
-            <div class="grid justify-between grid-cols-1 gap-6 mb-6 md:grid-cols-1 xl:grid-cols-3">
+            <div class="grid justify-between grid-cols-1 gap-6 mb-6 md:grid-cols-1 xl:grid-cols-3 animate__animated animate__bounceInUp">
                 <div class="bg-white"
                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);">
                     <div class="flex justify-between mx-3">
@@ -47,17 +48,14 @@
                         <div class="flex justify-around">
                             <div class="text-center">
                                 <p class="text-lg font-bold">0</p>
-                                <p class="text-xs">Hired</p>
+                                <p class="text-xs">Available</p>
                             </div>
                             <div class="text-center">
                                 <p class="text-lg font-bold">0</p>
-                                <p class="text-xs">Pending</p>
+                                <p class="text-xs">Unavailable</p>
                                 {{-- <p class="text-xs">Decline</p> --}}
                             </div>
-                            <div class="text-center">
-                                <p class="text-lg font-bold">0</p>
-                                <p class="text-xs">On Process</p>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -79,11 +77,15 @@
                         <div class="flex justify-around">
                             <div class="text-center">
                                 <p class="text-lg font-bold">0</p>
-                                <p class="text-xs">Active</p>
+                                <p class="text-xs">Incoming</p>
                             </div>
                             <div class="text-center">
                                 <p class="text-lg font-bold">0</p>
-                                <p class="text-xs">Inactive</p>
+                                <p class="text-xs">Ongoing</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-lg font-bold">0</p>
+                                <p class="text-xs">Done</p>
                             </div>
                         </div>
                     </div>
@@ -92,7 +94,7 @@
 
             <!--bar event 1 start-->
             <div class="gap-5 rounded-lg mt-1 lg:grid lg:grid-cols-2">
-                <div class="w-full h-auto bg-white rounded-lg "
+                <div class="w-full h-auto bg-white rounded-lg animate__animated animate__bounceInLeft"
                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                     <p class="flex items-center justify-center h-auto px-5 py-4 text-sm font-medium text-gray-800 ">
                         Total Number Of
@@ -137,7 +139,7 @@
                     </div>
 
                 </div>
-                <div class="w-full h-auto bg-white rounded-lg"
+                <div class="w-full h-auto bg-white rounded-lg animate__animated animate__bounceInRight"
                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                     <p class="flex items-center justify-center h-auto px-5 py-4 text-sm font-medium text-gray-800 ">
                         Total
