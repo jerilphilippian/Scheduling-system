@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Invite extends Model
 {
     use HasFactory;
+
+    public function notifications(){
+        return  $this->hasOne(Notification::class, 'invite_id', 'id');
+    }
 }
