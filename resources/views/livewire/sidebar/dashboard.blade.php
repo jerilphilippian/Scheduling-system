@@ -50,7 +50,7 @@
         >
           <img
             class="w-8 h-8 rounded-lg shadow-md"
-            src="https://avatars.githubusercontent.com/u/57622665?s=460&u=8f581f4c4acd4c18c33a87b3e6476112325e8b38&v=4"
+            src="{{asset('img/philippian-icon-transparent.png')}}"
             alt="Ahmed Kamel"
           />
           <span class="sr-only">User menu</span>
