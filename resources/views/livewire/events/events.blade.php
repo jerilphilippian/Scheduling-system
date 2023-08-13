@@ -1,7 +1,7 @@
 <div class="px-5 sm:pl-24">
     <div class="w-full">
-        <p class="text-2xl font-medium text-black">
-          Events
+        <p class="mb-3 text-2xl font-medium text-black">
+          Event List
         </p>
         <!-- BREADCRUMBS -->
         <nav class="text-black">
@@ -26,18 +26,6 @@
     </div>
      <!-- This is an example component -->
     <div>
-
-        {{-- <link rel="dns-prefetch" href="//unpkg.com" />
-        <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
-        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
-
-        <style>
-            [x-cloak] {
-                display: none;
-            }
-        </style> --}}
-
         <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak >
             <div class="container grid grid-cols-1 lg:grid-cols-[1fr_450px] gap-2">
                 <div class="overflow-hidden bg-white shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] rounded-lg">
@@ -192,8 +180,8 @@
             </div>
 
             <!-- Modal -->
-            <div style=" background-color: rgba(0, 0, 0, 0.8)" class="fixed top-0 bottom-0 left-0 right-0 z-40 w-full h-full" x-show.transition.opacity="openEventModal">
-                <div class="absolute relative left-0 right-0 max-w-xl p-4 mx-auto mt-24 overflow-hidden">
+            <div id="eventModal" style="background-color: rgba(0, 0, 0, 0.8)" class="fixed top-0 bottom-0 left-0 right-0 z-40 w-full h-full" x-show.transition.opacity="openEventModal">
+                <div class="absolute left-0 right-0 max-w-xl p-4 mx-auto mt-24 overflow-hidden">
                     <div class="absolute top-0 right-0 inline-flex items-center justify-center w-10 h-10 text-gray-500 bg-white rounded-full shadow cursor-pointer hover:text-gray-800"
                         x-on:click="openEventModal = !openEventModal">
                         <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -203,7 +191,6 @@
                     </div>
 
                     <div class="block w-full p-8 overflow-hidden bg-white rounded-lg shadow">
-
                         <h2 class="pb-2 mb-6 text-2xl font-bold text-gray-800 border-b">Add Event Details</h2>
 
                         <div class="mb-4">
@@ -223,10 +210,9 @@
                                         <template x-for="(theme, index) in themes">
                                             <option :value="theme.value" x-text="theme.label"></option>
                                         </template>
-
                                 </select>
                                 <div class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
-                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                    <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                                 </div>
                             </div>
                         </div>
@@ -244,6 +230,12 @@
             </div>
             <!-- /Modal -->
         </div>
+
+        <script>
+            window.addEventListener('load', function(){
+                document.querySelector('#eventModal').style.display = 'none'
+            })
+        </script>
 
         <script>
             const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

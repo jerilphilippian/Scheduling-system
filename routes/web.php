@@ -54,7 +54,7 @@ Route::prefix('my-events')->name('my-events.')->group(function () {
 // invitations
 Route::prefix('invitation')->name('invitation.')->group(function () {
     Route::get('/', InvitationIndex::class)->name('index');
-    Route::get('/view/{id}', InvitationView::class)->name('view');
+    Route::get('/view', InvitationView::class)->name('view');
 });
 
 // approval
