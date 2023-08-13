@@ -9,7 +9,7 @@ class Notification extends Model
 {
     use HasFactory;
 
-    public function invites(){
-        return  $this->belongsTo(Invite::class, 'invite_id', 'id');
+    public function event_user(){
+        return  $this->belongsTo(EventUser::class, 'event_user_id', 'id');
     }
 }

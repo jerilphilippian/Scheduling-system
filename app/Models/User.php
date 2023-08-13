@@ -45,7 +45,7 @@ class User extends Authenticatable
 
 
     public function events(){
-        return $this->belongsToMany(Event::class, 'invites', 'user_id', 'event_id');
+        return $this->belongsToMany(Event::class, 'event_user_id', 'user_id', 'event_id');
     }
 
     public function user_log(){
