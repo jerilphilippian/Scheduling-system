@@ -10,10 +10,14 @@ class Event extends Model
     use HasFactory;
 
     public function room(){
-        return $this->belongsTo(Room::class);
+        return  $this->belongsTo(Room::class, 'room_id', 'id');
     }
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    public function users(){
+        return $this->belongsToMany(User::class, 'event_user', 'event_id', 'user_id');
+    }
+
+    public function event_type(){
+        return  $this->belongsTo(EventType::class, 'event_type_id', 'id');
     }
 }

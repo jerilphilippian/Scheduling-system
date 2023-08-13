@@ -1,8 +1,9 @@
 <div class="px-5 sm:pl-24">
+    <div class="capitalize text-2xl mb-7 font-mono font-bold animate__animated animate__bounceInLeft">Dashboard</div>
     <div class="flex flex-1 flex-col bg-[#EEEDED]">
         <!-- Main -->
         <main class="flex flex-col flex-1 ">
-            <div class="grid justify-between grid-cols-1 gap-6 mb-6 md:grid-cols-1 xl:grid-cols-3">
+            <div class="grid justify-between grid-cols-1 gap-6 mb-6 md:grid-cols-1 xl:grid-cols-3 animate__animated animate__bounceInUp">
                 <div class="bg-white"
                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);">
                     <div class="flex justify-between mx-3">
@@ -33,7 +34,7 @@
                 <div class="bg-white"
                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);">
                     <div class="flex justify-between mx-3">
-                        <div class="flex items-center text-base font-medium text-gray-600">Total Number of Applicants
+                        <div class="flex items-center text-base font-medium text-gray-600">Total Number of Rooms
                         </div>
                         <div
                             class="flex items-center justify-center mt-2 transition-all duration-500 bg-white border border-red-800 rounded-full w-11 h-11 bg-opacity-10">
@@ -47,24 +48,21 @@
                         <div class="flex justify-around">
                             <div class="text-center">
                                 <p class="text-lg font-bold">0</p>
-                                <p class="text-xs">Hired</p>
+                                <p class="text-xs">Available</p>
                             </div>
                             <div class="text-center">
                                 <p class="text-lg font-bold">0</p>
-                                <p class="text-xs">Pending</p>
+                                <p class="text-xs">Unavailable</p>
                                 {{-- <p class="text-xs">Decline</p> --}}
                             </div>
-                            <div class="text-center">
-                                <p class="text-lg font-bold">0</p>
-                                <p class="text-xs">On Process</p>
-                            </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="bg-white"
                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);">
                     <div class="flex justify-between mx-3">
-                        <div class="flex items-center text-base font-medium text-gray-600">Total Number of Careers</div>
+                        <div class="flex items-center text-base font-medium text-gray-600">Total Number of Events Today</div>
                         <div
                             class="flex items-center justify-center mt-2 transition-all duration-500 bg-white border border-red-800 rounded-full w-11 h-11 bg-opacity-10">
                             <i class="text-xl text-red-800 fa-solid fa-briefcase"></i>
@@ -79,11 +77,15 @@
                         <div class="flex justify-around">
                             <div class="text-center">
                                 <p class="text-lg font-bold">0</p>
-                                <p class="text-xs">Active</p>
+                                <p class="text-xs">Incoming</p>
                             </div>
                             <div class="text-center">
                                 <p class="text-lg font-bold">0</p>
-                                <p class="text-xs">Inactive</p>
+                                <p class="text-xs">Ongoing</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-lg font-bold">0</p>
+                                <p class="text-xs">Done</p>
                             </div>
                         </div>
                     </div>
@@ -91,8 +93,8 @@
             </div>
 
             <!--bar event 1 start-->
-            <div class="gap-5 rounded-lg mt-14 lg:grid lg:grid-cols-2">
-                <div class="w-full h-auto bg-white "
+            <div class="gap-5 rounded-lg mt-1 lg:grid lg:grid-cols-2">
+                <div class="w-full h-auto bg-white rounded-lg animate__animated animate__bounceInLeft"
                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                     <p class="flex items-center justify-center h-auto px-5 py-4 text-sm font-medium text-gray-800 ">
                         Total Number Of
@@ -130,14 +132,14 @@
 
 
                     <!--date end-->
-                    <div class="flex justify-center w-full mt-0 md:mt-5">
+                    <div class="flex justify-center w-full mt-0 md:mt-5 mb-5">
                         <div class="flex items-start w-11/12 sm:w-9/12 md:w-10/12 ">
                             <canvas id="myChart" class="w-full"></canvas>
                         </div>
                     </div>
 
                 </div>
-                <div class="w-full h-auto bg-white rounded-lg"
+                <div class="w-full h-auto bg-white rounded-lg animate__animated animate__bounceInRight"
                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                     <p class="flex items-center justify-center h-auto px-5 py-4 text-sm font-medium text-gray-800 ">
                         Total
