@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -20,6 +22,15 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        //default admin account
+        DB::table('users')->insert(
+            array(
+                'name' => 'admin',
+                'email' => 'admin123@gmail.com',
+                'password' => Hash::make('password'),
+            )
+        );
     }
 
     /**

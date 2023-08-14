@@ -10,6 +10,7 @@ class Index extends Component
 
     public $addEventModal = false;
     public $editEventModal = false;
+    public $event_type;
 
     // function to open modal
     public function openModal(){

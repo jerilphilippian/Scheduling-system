@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -16,6 +17,36 @@ return new class extends Migration
             $table->string('type');
             $table->timestamps();
         });
+
+        DB::table('event_types')->insert(
+            array(
+                'type' => 'Meeting',
+            )
+        );
+
+        DB::table('event_types')->insert(
+            array(
+                'type' => 'Training',
+            )
+        );
+
+        DB::table('event_types')->insert(
+            array(
+                'type' => 'Seminar',
+            )
+        );
+
+        DB::table('event_types')->insert(
+            array(
+                'type' => 'Assembly',
+            )
+        );
+
+        DB::table('event_types')->insert(
+            array(
+                'type' => 'Panel',
+            )
+        );
     }
 
     /**

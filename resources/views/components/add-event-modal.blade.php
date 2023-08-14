@@ -9,8 +9,8 @@
                     label="Event Type"
                     wire:model.defer="model"
                     placeholder="Select some user"
-                    {{-- :async-data="route('api.users.index')" --}}
-                    option-label="name"
+                    :async-data="route('api.eventtypes.references')"
+                    option-label="type"
                     option-value="id"
                 />
             </div>

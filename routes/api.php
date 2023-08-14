@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('eventtype-references', [ApiController::class, 'eventtypesReferences'])
+->name('api.eventtypes.references');
 
 Route::get('department', [ApiController::class, 'departmentReferences'])
 ->name('api.department.references');
+
+

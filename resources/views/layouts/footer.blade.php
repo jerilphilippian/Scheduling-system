@@ -1,10 +1,10 @@
-<div class="absolute w-full justify-center items-center ">
-    <footer class="relative bottom-0 mt-8 bg-white h-16 p-6 dark:bg-gray-800">
+<div class="absolute items-center justify-center w-full">
+    <footer class="relative bottom-0 h-16 p-6 mt-8 bg-white dark:bg-gray-800">
         <div class="mx-auto text-center">
-            <a href="#" class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
+            <a href="#" class="flex items-center justify-center text-2xl font-semibold text-gray-900 dark:text-white">
                 {{-- <img src="{{asset('img/philippian-icon-transparent.png')}}" alt=""> --}}
             </a>
-            {{-- <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
+            {{-- <ul class="flex flex-wrap items-center justify-center mb-6 text-gray-900 dark:text-white">
                 <li>
                     <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
                 </li>

@@ -11,51 +11,50 @@
     @vite('resources/css/app.css')
     <wireui:scripts />
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    {{-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-        <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-  <script src="../path/to/flowbite/dist/datepicker.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/datepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="../path/to/flowbite/dist/datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/datepicker.min.js"></script>
 
-        <style>
-            @import url("https://fonts.googleapis.com/css2?family=Asap&display=swap");
-* {
-  scroll-behavior: smooth;
-}
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Asap&display=swap");
 
-@media (max-width: 900px) {
-  section h1 {
-    font-size: 2rem;
-    text-align: center;
-  }
-  section .text-container {
-    flex-direction: column;
-  }
-}
+        * {
+            scroll-behavior: smooth;
+        }
 
-.reveal {
-  position: relative;
-  transform: translateY(150px);
-  opacity: 0;
-  transition: 2s all ease;
-}
+        @media (max-width: 900px) {
+            section h1 {
+                font-size: 2rem;
+                text-align: center;
+            }
 
-.reveal.active {
-  transform: translateY(0);
-  opacity: 1;
-}
-        </style>
+            section .text-container {
+                flex-direction: column;
+            }
+        }
 
-  <script>
-    let section = document.querySelectorAll("section");
+        .reveal {
+            position: relative;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: 2s all ease;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+
+    <script>
+        let section = document.querySelectorAll("section");
 let menu = document.querySelectorAll("header nav a");
 
 window.onscroll = () => {
@@ -94,42 +93,61 @@ window.onscroll = () => {
 
     window.addEventListener("scroll", reveal);
     reveal();
-  </script>
+    </script>
     @livewireStyles
 
 </head>
 {{-- bg-[url('/img/coverphoto.jpg')] --}}
 
-<body class="py-24" style="background-image:linear-gradient(to left, rgba(255, 255, 255, 0.048), rgba(117, 19, 19, 0.529)),url('/img/coverphoto.jpg')" x-data="{isSettingsPanelOpen:false}">
-{{-- <body class="py-24 bg-[#EEEDED]" x-data="{isSettingsPanelOpen:false}"> --}}
-    <x-dialog z-index="z-50" blur="md" align="center" />
-    {{ $slot }}
+<body class="py-24"
+    style="background-image:linear-gradient(to left, rgba(255, 255, 255, 0.048), rgba(117, 19, 19, 0.529)),url('/img/coverphoto.jpg')"
+    x-data="{isSettingsPanelOpen:false}">
+    {{--
 
-    <!-- component -->
-    <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');" @resize.window="watchScreen()">
-        <div class="flex antialiased text-gray-900 dark:bg-dark dark:text-light">
-            <!-- Loading screen -->
-            <div x-ref="loading">
+    <body class="py-24 bg-[#EEEDED]" x-data="{isSettingsPanelOpen:false}"> --}}
+        <x-dialog z-index="z-50" blur="md" align="center" />
+        {{ $slot }}
 
+        <!-- component -->
+        <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');" @resize.window="watchScreen()">
+            <div class="flex antialiased text-gray-900 dark:bg-dark dark:text-light">
+                <!-- Loading screen -->
+                <div x-ref="loading">
+
+                </div>
+                <!-- Sidebar-->
+                @include('livewire.sidebar.dashboard')
+                <!-- Sidebar end-->
+                <div class="flex flex-col flex-1 ">
+
+                    <!--header-->
+                    @include('layouts.nav')
+                    <!--header end-->
+
+                </div>
             </div>
-            <!-- Sidebar-->
-            @include('livewire.sidebar.dashboard')
-            <!-- Sidebar end-->
-            <div class="flex flex-col flex-1 ">
 
-                <!--header-->
-                @include('layouts.nav')
-                <!--header end-->
+            <!-- Panels -->
 
-            </div>
+            <!-- Settings Panel -->
+            <!-- Backdrop -->
+            <div x-show="isSettingsPanelOpen" class="fixed inset-0 bg-black bg-opacity-50"
+                @click="isSettingsPanelOpen = false" aria-hidden="true"></div>
+            <!-- Panel -->
+
+
+
+
+            <!-- Author links -->
+
         </div>
 
         <!-- Panels -->
 
         <!-- Settings Panel -->
         <!-- Backdrop -->
-        <div x-show="isSettingsPanelOpen" class="fixed inset-0 bg-black bg-opacity-50"
-            @click="isSettingsPanelOpen = false" aria-hidden="true"></div>
+        {{-- <div x-show="isSettingsPanelOpen" class="fixed inset-0 bg-black bg-opacity-50"
+            @click="isSettingsPanelOpen = false" aria-hidden="true"></div> --}}
         <!-- Panel -->
 
 
@@ -137,25 +155,11 @@ window.onscroll = () => {
 
         <!-- Author links -->
 
-    </div>
+        @vite('resources/js/app.js')
+        @livewireScripts
 
-    <!-- Panels -->
-
-    <!-- Settings Panel -->
-    <!-- Backdrop -->
-    {{-- <div x-show="isSettingsPanelOpen" class="fixed inset-0 bg-black bg-opacity-50" @click="isSettingsPanelOpen = false"
-        aria-hidden="true"></div> --}}
-    <!-- Panel -->
-
-
-
-
-    <!-- Author links -->
-
-    @vite('resources/js/app.js')
-
-    <script>
-        const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+        <script>
+            const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
         new Chart("myChart1", {
             type: "line",
@@ -185,12 +189,10 @@ window.onscroll = () => {
                 }
             }
         });
-    </script>
+        </script>
 
-    <script>
-
-
-        // const ctx = document.getElementById('myChart');
+        <script>
+            // const ctx = document.getElementById('myChart');
 
         // new Chart(ctx, {
         //     type: 'bar',
@@ -212,10 +214,52 @@ window.onscroll = () => {
         //         }
         //     }
         // });
-    </script>
+        </script>
 
-<script>
-    // ApexCharts options and config
+        <script>
+            const ctxx = document.getElementById('myChart-room');
+
+    new Chart(ctxx, {
+        type: 'bar',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+                'October', 'November', 'December'
+            ],
+            datasets: [{
+                label: '# of Rooms',
+                data: [18, 24, 22, 20, 12, 19, 13, 15, 25, 30, 20, 18],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+        </script>
+
+        <script>
+            const setup = () => {
+        return {
+            isSidebarOpen: false,
+            currentSidebarTab: null,
+            isSettingsPanelOpen: false,
+            isSubHeaderOpen: false,
+            watchScreen() {
+                if (window.innerWidth <= 1024) {
+                    this.isSidebarOpen = false
+                }
+            },
+        }
+    }
+        </script>
+
+        <script>
+            // ApexCharts options and config
     window.addEventListener("load", function() {
       var options = {
         series: [
@@ -316,54 +360,15 @@ window.onscroll = () => {
         chart.render();
       }
     });
-  </script>
+        </script>
 
-    <script>
-        const ctxx = document.getElementById('myChart-room');
 
-        new Chart(ctxx, {
-            type: 'bar',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
-                    'October', 'November', 'December'
-                ],
-                datasets: [{
-                    label: '# of Rooms',
-                    data: [18, 24, 22, 20, 12, 19, 13, 15, 25, 30, 20, 18],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                indexAxis: 'y',
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+        {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js"></script> --}}
 
-    {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js"></script> --}}
-    <script>
-        const setup = () => {
-            return {
-                isSidebarOpen: false,
-                currentSidebarTab: null,
-                isSettingsPanelOpen: false,
-                isSubHeaderOpen: false,
-                watchScreen() {
-                    if (window.innerWidth <= 1024) {
-                        this.isSidebarOpen = false
-                    }
-                },
-            }
-        }
-    </script>
-    @livewireScripts
 
-    {{-- <script src="../path/to/flowbite/dist/flowbite.min.js"></script> --}}
-    @include('layouts.footer')
-</body>
+
+        {{-- <script src="../path/to/flowbite/dist/flowbite.min.js"></script> --}}
+        @include('layouts.footer')
+    </body>
 
 </html>
