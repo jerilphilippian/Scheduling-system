@@ -52,10 +52,11 @@
             <div>
                 <x-select
                     label="Participants"
-                    placeholder="Select many statuses"
+                    wire:model.defer="eventUser"
                     multiselect
-                    :options="['Active', 'Pending', 'Stuck', 'Done']"
-                    wire:model.defer="model"
+                    :async-data="route('api.user.references')"
+                    option-label="name"
+                    option-value="id"
                 />
             </div>
             <div>

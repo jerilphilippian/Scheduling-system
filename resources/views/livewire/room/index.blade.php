@@ -42,8 +42,8 @@
                         <div class="md:flex md:justify-between md:items-center">
                            <!-- ADD USER -->
                            <div>
-                              <!-- Modal toggle -->
-                              <x-button red label="Add Room" data-modal-target="staticModal" data-modal-toggle="staticModal"/>
+                                <!-- Modal toggle -->
+                                <x-button red label="Add Room" data-modal-target="staticModal" data-modal-toggle="staticModal"/>
                             </button>
 
 
