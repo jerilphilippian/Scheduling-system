@@ -1,5 +1,4 @@
 <div class="px-5 sm:pl-24">
-    <div class="flex flex-col flex-1">
         <main class="flex flex-col flex-1">
             <div class="w-full">
                 <p class="text-2xl font-medium text-black">USER MANAGEMENT</p>
@@ -17,7 +16,7 @@
                     </ol>
                 </nav>
             </div>
-        <!-- CONTENT -->
+            <!-- CONTENT -->
             <main class="container left-0 right-0 w-full">
                 <form wire:submit.prevent='updateUser'>
                     <div class="w-full h-full p-6 mt-8 bg-white border border-gray-200 rounded-lg shadow ">

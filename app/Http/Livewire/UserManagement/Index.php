@@ -13,6 +13,10 @@ class Index extends Component
         $this->addModalOpen = true;
     }
 
+    public function editRoles(){
+        dd("open edit modal");
+    }
+
     public function render()
     {
         return view('livewire.user-management.index');
