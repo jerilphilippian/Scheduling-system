@@ -1,6 +1,6 @@
 <div class="px-5 sm:pl-24">
-    <div class="font-mono text-2xl font-bold capitalize mb-7 animate__animated animate__bounceInLeft">Dashboard</div>
-    <div class="flex flex-col flex-1">
+    <div class="capitalize text-2xl mb-7 text-white font-mono font-bold animate__animated animate__bounceInLeft">Dashboard</div>
+    <div class="flex flex-1 flex-col">
         <!-- Main -->
         <main class="flex flex-col flex-1 ">
             <div class="grid justify-between grid-cols-1 gap-6 mb-6 md:grid-cols-1 xl:grid-cols-3 animate__animated animate__bounceInUp">
@@ -160,13 +160,7 @@
                 </div>
             </div>
 
-            <div class="w-full col-span-2 mt-6 bg-white rounded-lg h-72"
-                style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); display: flex; flex-direction: column;">
-                <p class="flex items-center px-5 my-3 font-medium text-gray-800" style="white-space: pre-line;">Most
-                    applied Job Positions</p>
-                <div id="chart">
-                </div>
-            </div>
+
             <!--2nd box graph end-->
             <!-- Content -->
         </main>

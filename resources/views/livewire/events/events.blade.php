@@ -1,7 +1,7 @@
 <div class="px-5 sm:pl-24">
     <div class="w-full">
-        <p class="mb-3 text-2xl font-medium text-black">
-          Event List
+        <p class="capitalize text-2xl mb-7 text-white font-mono font-bold animate__animated animate__bounceInLeft">
+          Events
         </p>
         <!-- BREADCRUMBS -->
         <nav class="text-black">

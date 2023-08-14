@@ -1,11 +1,11 @@
 <div>
 
 
-    <div class="flex flex-col flex-1 px-24 ">
+    <div class="flex flex-col flex-1 px-24 "style="height:100vh;">
         <!-- Main -->
         <main class="flex flex-col flex-1 ">
                 <div class="w-full">
-                    <p class="text-2xl text-black"><a href="{{route('room')}}">Room</a></p>
+                    <p class="capitalize text-2xl mb-7 text-white font-mono font-bold animate__animated animate__bounceInLeft"><a href="{{route('room')}}">Room</a></p>
                    <!-- BREADCRUMBS -->
                    <nav class="text-white">
                       <ol class="inline-flex gap-1 p-0 list-none">
@@ -38,13 +38,15 @@
                 </div>
                 <!-- CONTENT -->
                 <main class="container left-0 right-0 w-full mx-auto">
+                    <!-- Modal toggle -->
+                    <div class="flex justify-end">
+                    <x-button red label="Add Room" data-modal-target="staticModal" data-modal-toggle="staticModal"/>
+                </button>
+            </div>
                     <div class="w-full h-full p-6 mt-8 bg-white border border-gray-200 rounded-lg shadow ">
                         <div class="md:flex md:justify-between md:items-center">
                            <!-- ADD USER -->
                            <div>
-                                <!-- Modal toggle -->
-                                <x-button red label="Add Room" data-modal-target="staticModal" data-modal-toggle="staticModal"/>
-                            </button>
 
 
 

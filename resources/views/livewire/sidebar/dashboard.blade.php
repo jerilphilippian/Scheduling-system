@@ -71,7 +71,10 @@
     </nav>
 
     <!-- Left mini bar -->
-    <nav aria-label="Options" class="z-20 flex-col items-center flex-shrink-0 hidden w-16 h-screen py-4 bg-white border-r-2 border-indigo-100 shadow-md sm:flex rounded-tr-3xl rounded-br-3xl">
+    <nav
+      aria-label="Options"
+      class="z-20 flex-col items-center flex-shrink-0 hidden w-16 h-screen py-4 bg-white border-r-2 border-indigo-100 shadow-md sm:flex"
+    >
       <!-- Logo -->
       <div class="flex-shrink-0 py-4">
         <a href="">
@@ -162,18 +165,17 @@
       x-transition:leave-start="translate-x-0"
       x-transition:leave-end="-translate-x-full"
       x-show="isSidebarOpen"
-      class="fixed inset-y-0 left-0 z-10 flex-shrink-0 w-64 bg-white border-r-2 border-indigo-100 shadow-lg sm:left-16 rounded-tr-3xl rounded-br-3xl sm:w-72 lg:static lg:w-64">
-        <nav x-show="currentSidebarTab == 'linksTab'" aria-label="Main" class="flex flex-col h-full">
-            <!-- Logo -->
-            <div class="flex items-center justify-center flex-shrink-0 py-10">
-            <a href="">
-                <img
-                class="w-24 h-auto"
-                src="{{asset('img/PMC-LOGO.png')}}"
-                alt="K-UI"
-                />
-            </a>
+      class="fixed inset-y-0 left-0 z-10 flex-shrink-0 w-64 bg-white border-r-2 border-indigo-100 shadow-lg sm:left-16 rounded-tr-3xl rounded-br-3xl sm:w-72 lg:static lg:w-64"
+    >
+      <nav x-show="currentSidebarTab == 'linksTab'" aria-label="Main" class="flex flex-col h-full">
+        <!-- Logo -->
+        <div class="flex items-center  justify-center flex-shrink-0 py-10">
+            <div class="flex flex-col text-center flex-wrap">
+                <p class="capitalize text-xl mb-7 text-black text-left font-mono font-bold">Welcome</p>
             </div>
+          {{-- <div class="capitalize text-2xl mb-7 text-black text-left font-mono font-bold">Welcome</div>
+          <div class="text-sm mb-7 text-black text-left font-mono font-bold">rjgrdijgdrsrejfhwesfhseiofesf</div> --}}
+        </div>
 
             <!-- Links mobile -->
             <div class="flex-1 px-4 space-y-2 overflow-hidden hover:overflow-auto">
@@ -210,21 +212,71 @@
                 <span>Approval</span>
             </a>
 
-            <a href="{{route('room')}}" class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] hover:text-white" >
-                <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-[#860909] group-hover:text-white">
-                <i class="text-lg fa-solid fa-house"></i>
-                </span>
-                <span>Room</span>
-            </a>
+          <a
+            href="{{route('room')}}"
+            class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] hover:text-white {{ request()->routeIs('room') ? 'text-white bg-[#860909] ' : '' }}"
+          >
+            <span
+              aria-hidden="true"
+              class="p-2 transition-colors rounded-lg group-hover:bg-[#860909] group-hover:text-white"
+            >
+              {{-- <svg
+                class="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                />
+              </svg> --}}
+              <i class="text-lg fa-solid fa-house"></i>
+            </span>
+            <span>Room</span>
+          </a>
 
-            <a href="{{route('user-management.index')}}" class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] hover:text-white">
-                <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-[#860909] group-hover:text-white">
-                <i class="text-lg fa-solid fa-user-group"></i>
-                </span>
-                <span>User Management</span>
-            </a>
-            </div>
-        </nav>
+          <a
+            href="{{route('user-management.index')}}"
+            class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] hover:text-white {{ request()->routeIs('user-management') ? 'text-white bg-[#860909] ' : '' }}"
+          >
+            <span
+              aria-hidden="true"
+              class="p-2 transition-colors rounded-lg group-hover:bg-[#860909] group-hover:text-white"
+            >
+              {{-- <svg
+                class="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                />
+              </svg> --}}
+              <i class="text-lg fa-solid fa-user-group"></i>
+            </span>
+            <span>User Management</span>
+          </a>
+        </div>
+<!-- Links mobile -->
+        {{-- <div class="flex-shrink-0 p-4 mt-10">
+
+
+          <button
+            class="w-full px-4 py-2 text-center text-white transition-colors bg-[#860909] rounded-lg md:hidden hover:bg-[#860909] focus:outline-none focus:ring focus:bg-[#860909] focus:ring-offset-2 focus:ring-offset-gray-100"
+          >
+            Upgrade to pro
+          </button>
+        </div> --}}
+      </nav>
 
         <section x-show="currentSidebarTab == 'messagesTab'" class="px-4 py-6">
             <h2 class="text-xl">Messages</h2>

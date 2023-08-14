@@ -1,6 +1,6 @@
-<div class="px-5 sm:pl-24">
+<div class="px-5 sm:pl-24"style="height:100vh;">
     <div class="w-full">
-        <p class="mb-3 text-2xl font-medium text-black">
+        <p class="capitalize text-2xl mb-7 text-white font-mono font-bold animate__animated animate__bounceInLeft">
           My Events
         </p>
         <!-- BREADCRUMBS -->
@@ -27,9 +27,12 @@
             <x-button red label="Add Event" wire:click="openModal" />
         </div>
         <!-- MENUS -->
+        <div class="w-full h-full p-6 mt-8 bg-white border border-gray-200 rounded-lg shadow ">
+
 
         <div>
             <livewire:tables.livewire-table.events-table />
+        </div>
         </div>
 
         @include('components.edit-event-modal')

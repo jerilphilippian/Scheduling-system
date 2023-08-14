@@ -1,11 +1,11 @@
 <div>
 
 
-    <div class="flex flex-1 flex-col px-24">
+    <div class="flex flex-1 flex-col px-24"style="height:100vh;">
         <!-- Main -->
         <main class="flex flex-col px-8 flex-1 ">
                 <div class="w-full">
-                   <p class="text-2xl font-medium text-black">
+                   <p class="capitalize text-2xl mb-7 text-white font-mono font-bold animate__animated animate__bounceInLeft">
                       Admin Profile
                    </p>
                    <!-- BREADCRUMBS -->
