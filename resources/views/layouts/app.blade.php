@@ -74,26 +74,24 @@ window.onscroll = () => {
   });
 };
 
-function reveal() {
-  var reveals = document.querySelectorAll(".reveal");
+    function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
 
-  for (var i = 0; i < reveals.length; i++) {
-    var windowHeight = window.innerHeight;
-    var elementTop = reveals[i].getBoundingClientRect().top;
-    var elementVisible = 150;
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
 
-    if (elementTop < windowHeight - elementVisible) {
-      reveals[i].classList.add("active");
-    } else {
-      reveals[i].classList.remove("active");
+        if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+        } else {
+        reveals[i].classList.remove("active");
+        }
     }
-  }
-}
+    }
 
-window.addEventListener("scroll", reveal);
-
-// To check the scroll position on page load
-reveal();
+    window.addEventListener("scroll", reveal);
+    reveal();
   </script>
     @livewireStyles
 
@@ -101,6 +99,7 @@ reveal();
 {{-- bg-[url('/img/coverphoto.jpg')] --}}
 
 <body class="py-24 bg-[#EEEDED]" x-data="{isSettingsPanelOpen:false}">
+    <x-dialog z-index="z-50" blur="md" align="center" />
     {{ $slot }}
 
     <!-- component -->

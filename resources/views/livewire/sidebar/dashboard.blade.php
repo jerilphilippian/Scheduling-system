@@ -217,7 +217,7 @@
                 <span>Room</span>
             </a>
 
-            <a href="{{route('user-management')}}" class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] hover:text-white">
+            <a href="{{route('user-management.index')}}" class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] hover:text-white">
                 <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-[#860909] group-hover:text-white">
                 <i class="text-lg fa-solid fa-user-group"></i>
                 </span>

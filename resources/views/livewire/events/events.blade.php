@@ -118,6 +118,7 @@
                         <div>
                             <ul class="flex flex-col gap-3 ">
                                 @forelse ($eventList as $event)
+                                    {{-- {{dd($event->users[0]['name'])}} --}}
                                     <a href="{{route('events.view', $event->id)}}" class="p-3 rounded hover:bg-gray-100">
                                         <li class="flex gap-2">
                                             <div class="w-[50px] h-[50px]">
@@ -133,7 +134,7 @@
                                                     <div class="flex items-center gap-4">
                                                         <p class="text-sm text-gray-600">
                                                             <i class="fa-solid fa-building-user"></i>
-                                                            {{$event->user->name}}
+                                                            {{$event->users[0]['name']}}
                                                         </p>
                                                         <p class="text-sm text-gray-600">
                                                             <i class="fa-solid fa-clock"></i>
