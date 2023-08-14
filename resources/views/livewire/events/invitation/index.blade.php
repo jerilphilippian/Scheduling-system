@@ -1,6 +1,6 @@
 <div class="px-5 sm:pl-24">
     <div class="w-full">
-        <p class="text-2xl font-medium text-black">
+        <p class="mb-3 text-2xl font-medium text-black">
           Invitations
         </p>
         <!-- BREADCRUMBS -->

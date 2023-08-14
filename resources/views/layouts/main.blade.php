@@ -17,10 +17,12 @@
     @livewireStyles
 
 </head>
-<body class="bg-[url('/img/coverphoto.jpg')]">
-    <main>
+<body class="">
+    <main class="w-full h-auto min-h-screen bg-[url('/img/bg3a.jpg')] relative">
+        <div class="absolute inset-0 z-[1] bg-black bg-opacity-50"></div>
         {{$slot}}
     </main>
+    @vite('resources/js/app.js')
     @livewireScripts
 </body>
 <script src="../path/to/flowbite/dist/flowbite.min.js"></script>

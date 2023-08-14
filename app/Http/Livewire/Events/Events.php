@@ -11,8 +11,8 @@ class Events extends Component
 
     public $eventList;
 
-    public function mount(Event $eventsList){
-        $this->eventList = Event::all();
+    public function mount(){
+        $this->eventList = Event::with('users')->get();
     }
 
     public function render()

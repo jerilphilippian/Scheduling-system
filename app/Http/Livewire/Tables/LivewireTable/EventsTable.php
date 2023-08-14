@@ -46,7 +46,7 @@ class EventsTable extends DataTableComponent
                     ];
                 })
                 ->buttons([
-                    LinkColumn::make('View') // make() has no effect in this case but needs to be set anyway
+                    LinkColumn::make('Edit') // make() has no effect in this case but needs to be set anyway
                         ->title(fn($row) => 'Edit ')
                         ->location(fn($row) => '#')
                         ->attributes(function($row) {

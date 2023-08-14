@@ -1,6 +1,6 @@
 <div class="px-5 sm:pl-24">
     <div class="w-full">
-        <p class="text-2xl font-medium text-black">
+        <p class="mb-3 text-2xl font-medium text-black">
           My Events
         </p>
         <!-- BREADCRUMBS -->
@@ -23,102 +23,12 @@
         <!-- MENUS -->
         <div class="flex items-center justify-between">
             @include('components.event-menu')
-            <x-button red label="Add Event" data-modal-target="saveEventModal" data-modal-toggle="saveEventModal" />
+            {{-- <x-button red label="Add Event" data-modal-target="saveEventModal" data-modal-toggle="saveEventModal" /> --}}
+            <x-button red label="Add Event" wire:click="openModal" />
         </div>
         <!-- MENUS -->
 
         <div>
-            {{-- <div class="relative overflow-x-auto">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                Event
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Rooms
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Date
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Time
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Status
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Action
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Seminar
-                            </th>
-                            <td class="px-6 py-4">
-                                Room 1
-                            </td>
-                            <td class="px-6 py-4">
-                                August 20, 2023
-                            </td>
-                            <td class="px-6 py-4">
-                                8:00 AM - 9:00AM
-                            </td>
-                            <td class="px-6 py-4">
-                                Ongoing
-                            </td>
-                            <td class="px-6 py-4">
-                                <x-button red label="Edit" data-modal-target="editEventModal" data-modal-toggle="editEventModal" />
-                                <x-button href="{{route('events.view')}}" dark label="View" />
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Seminar
-                            </th>
-                            <td class="px-6 py-4">
-                                Room 1
-                            </td>
-                            <td class="px-6 py-4">
-                                August 20, 2023
-                            </td>
-                            <td class="px-6 py-4">
-                                8:00 AM - 9:00AM
-                            </td>
-                            <td class="px-6 py-4">
-                                Ongoing
-                            </td>
-                            <td class="px-6 py-4">
-                                <x-button red label="Edit" data-modal-target="editEventModal" data-modal-toggle="editEventModal" />
-                                <x-button href="{{route('events.view')}}" dark label="View" />
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Seminar
-                            </th>
-                            <td class="px-6 py-4">
-                                Room 1
-                            </td>
-                            <td class="px-6 py-4">
-                                August 20, 2023
-                            </td>
-                            <td class="px-6 py-4">
-                                8:00 AM - 9:00AM
-                            </td>
-                            <td class="px-6 py-4">
-                                Ongoing
-                            </td>
-                            <td class="px-6 py-4">
-                                <x-button red label="Edit" data-modal-target="editEventModal" data-modal-toggle="editEventModal" />
-                                <x-button href="{{route('events.view')}}" dark label="View" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div> --}}
             <livewire:tables.livewire-table.events-table />
         </div>
 
@@ -337,6 +247,9 @@
             </div>
         </div>
         {{-- Edit event modal --}}
+        @include('components.edit-event-modal')
+        @include('components.add-event-modal')
+
 
     </div>
 </div>
