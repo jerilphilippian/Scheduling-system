@@ -1,6 +1,6 @@
 <div class="px-5 sm:pl-24">
-    <div class="capitalize text-2xl mb-7 font-mono font-bold animate__animated animate__bounceInLeft">Dashboard</div>
-    <div class="flex flex-1 flex-col">
+    <div class="font-mono text-2xl font-bold capitalize mb-7 animate__animated animate__bounceInLeft">Dashboard</div>
+    <div class="flex flex-col flex-1">
         <!-- Main -->
         <main class="flex flex-col flex-1 ">
             <div class="grid justify-between grid-cols-1 gap-6 mb-6 md:grid-cols-1 xl:grid-cols-3 animate__animated animate__bounceInUp">
@@ -14,17 +14,17 @@
                         </div>
                     </div>
                     <div class="flex justify-center mt-4 mb-8">
-                        <span class="text-5xl font-normal ">0</span>
+                        <span class="text-5xl font-normal ">{{$activeUser+$inactiveUser}}</span>
                     </div>
 
                     <div class="w-full p-3 bg-gray-200">
                         <div class="flex justify-around">
                             <div class="text-center">
-                                <p class="text-lg font-bold">0</p>
+                                <p class="text-lg font-bold">{{$activeUser}}</p>
                                 <p class="text-xs">Active</p>
                             </div>
                             <div class="text-center">
-                                <p class="text-lg font-bold">0</p>
+                                <p class="text-lg font-bold">{{$inactiveUser}}</p>
                                 <p class="text-xs">Inactive</p>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="flex justify-center mt-4 mb-8">
-                        <span class="text-5xl font-normal ">0</span>
+                        <span class="text-5xl font-normal ">{{$totalRooms}}</span>
                     </div>
                     <div class="w-full p-3 bg-gray-200">
                         <div class="flex justify-around">
@@ -93,7 +93,7 @@
             </div>
 
             <!--bar event 1 start-->
-            <div class="gap-5 rounded-lg mt-1 lg:grid lg:grid-cols-2">
+            <div class="gap-5 mt-1 rounded-lg lg:grid lg:grid-cols-2">
                 <div class="w-full h-auto bg-white rounded-lg animate__animated animate__bounceInLeft"
                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                     <p class="flex items-center justify-center h-auto px-5 py-4 text-sm font-medium text-gray-800 ">
@@ -126,10 +126,10 @@
                         </div>
 
                     <!--date end-->
-                    <div class="flex justify-start md:mt-5 mb-5">
+                    <div class="flex justify-start mb-5 md:mt-5">
 
                             <div class="w-full p-5" id="bar-chart"></div>
-                          <div class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
+                          <div class="grid items-center justify-between grid-cols-1 border-t border-gray-200 dark:border-gray-700">
                           </div>
 
                     </div>
