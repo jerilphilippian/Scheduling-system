@@ -9,6 +9,8 @@ class UserData extends Model
 {
     use HasFactory;
 
+    protected $table = "user_datas";
+
     public function users(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
