@@ -55,7 +55,7 @@
                     wire:model.defer="eventUser"
                     multiselect
                     :async-data="route('api.user.references')"
-                    option-label="name"
+                    option-label="full_name"
                     option-value="id"
                 />
             </div>

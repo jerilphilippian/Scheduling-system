@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Department;
+use App\Models\User;
+use App\Models\UserData;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -34,5 +37,25 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    public function configure()
+    {
+        return $this->afterCreating(
+            function (User $user) {
+                UserData::factory()->create(
+                    [
+                        'first_name' => $this->faker->firstName(),
+                        'middle_name' => $this->faker->lastName(),
+                        'last_name' => $this->faker->lastName(),
+                        'position' => $this->faker->jobTitle(),
+                        'user_id' => $user->id,
+                        'department_id' => Department::all()->random(),
+                        'updated_at' => now(),
+                        'created_at' => now(),
+                    ]
+                );
+            }
+        );
     }
 }

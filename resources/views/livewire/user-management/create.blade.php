@@ -48,10 +48,9 @@
                                     />
                                     <x-select
                                         label="Role"
-                                        wire:model.defer="model"
-                                        placeholder="Select some user"
-                                        option-label="name"
-                                        option-value="id"
+                                        placeholder="Select Role"
+                                        :options="['Admin', 'User']"
+                                        wire:model.defer="role"
                                     />
                                 </div>
                             </div>

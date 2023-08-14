@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -43,16 +45,25 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function fullName():Attribute
+    {
+        return new Attribute(
+            get: fn () => ($this->user_data->first_name ?? '').' '.($this->user_data->last_name ?? ''),
+        );
+    }
 
-    public function events(){
+    public function events()
+    {
         return $this->belongsToMany(Event::class, 'event_user_id', 'user_id', 'event_id');
     }
 
-    public function user_log(){
+    public function user_log()
+    {
         return $this->hasMany(UserLog::class, 'user_id', 'id');
     }
 
-    public function users_data(){
+    public function user_data()
+    {
         return $this->hasOne(UserData::class, 'user_id', 'id');
     }
 }
