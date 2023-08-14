@@ -17,6 +17,7 @@ use App\Http\Livewire\UserManagement\Index as UserManagementIndex;
 use App\Http\Livewire\Room\Index as RoomIndex;
 use App\Http\Livewire\Profile\Index as ProfileIndex;
 use App\Http\Livewire\UserManagement\Create as UserManagementCreate;
+use App\Http\Livewire\UserManagement\Department\Index as DepartmentIndex;
 use App\Http\Livewire\UserManagement\Edit as UserManagementEdit;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -65,11 +66,18 @@ Route::prefix('approval')->name('approval.')->group(function () {
     Route::get('/view/{id}', ApprovalView::class)->name('view');
 });
 
+// user management
 Route::prefix('user-management')->name('user-management.')->group(function () {
     Route::get('/', UserManagementIndex::class)->name('index');
     Route::get('/create', UserManagementCreate::class)->name('create');
     Route::get('/edit/{user}', UserManagementEdit::class)->name('edit');
 });
+
+// Department
+Route::prefix('department')->name('department.')->group(function () {
+    Route::get('/', DepartmentIndex::class)->name('index');
+});
+
 // Route::get('/events', Events::class)->name('events');
 // Route::get('/user-management', UserManagementIndex::class)->name('user-management');
 Route::get('/room', RoomIndex::class)->name('room');
