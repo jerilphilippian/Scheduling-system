@@ -34,7 +34,7 @@ class UserTable extends DataTableComponent
                 ->sortable(),
                 Column::make('Actions')
         ->label(
-            fn($row, column $column) => view('layouts.components.buttons.user-table-button-edit')
+            fn($row, column $column) => view('layouts.components.buttons.user-table-buttons-edit')
             ->withRow($row)
         )
         ->html()

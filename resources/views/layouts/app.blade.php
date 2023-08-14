@@ -102,7 +102,7 @@ reveal();
 </head>
 {{-- bg-[url('/img/coverphoto.jpg')] --}}
 
-<body class="py-24" style="background-image:linear-gradient(to left, rgba(255, 255, 255, 0.048), rgba(117, 19, 19, 0.761)),url('/img/coverphoto.jpg')" x-data="{isSettingsPanelOpen:false}">
+<body class="py-24" style="background-image:linear-gradient(to left, rgba(255, 255, 255, 0.048), rgba(117, 19, 19, 0.529)),url('/img/coverphoto.jpg')" x-data="{isSettingsPanelOpen:false}">
     {{ $slot }}
 
     <!-- component -->

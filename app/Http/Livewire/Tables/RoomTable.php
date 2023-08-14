@@ -37,7 +37,7 @@ class RoomTable extends DataTableComponent
                 ->sortable(),
                 Column::make('Actions')
         ->label(
-            fn($row, column $column) => view('layouts.components.buttons.room-table-button-edit')
+            fn($row, column $column) => view('layouts.components.buttons.room-table-buttons-edit')
             ->withRow($row)
         )
         ->html()
