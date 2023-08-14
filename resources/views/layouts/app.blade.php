@@ -104,7 +104,7 @@ reveal();
 
 <body class="py-24" style="background-image:linear-gradient(to left, rgba(255, 255, 255, 0.048), rgba(117, 19, 19, 0.529)),url('/img/coverphoto.jpg')" x-data="{isSettingsPanelOpen:false}">
     {{ $slot }}
-
+    <x-dialog />
     <!-- component -->
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');" @resize.window="watchScreen()">
         <div class="flex antialiased text-gray-900 dark:bg-dark dark:text-light">

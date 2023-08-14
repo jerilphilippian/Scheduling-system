@@ -20,8 +20,7 @@ class RoomTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Id", "id")
-                ->sortable(),
+            Column::make("Id", "id")->hideIf(true),
             Column::make("Name", "name")
                 ->sortable()
                 ->searchable(),
@@ -31,16 +30,16 @@ class RoomTable extends DataTableComponent
             Column::make("Capacity", "capacity")
                 ->sortable()
                 ->searchable(),
-            Column::make("Created at", "created_at")
-                ->sortable(),
-            Column::make("Updated at", "updated_at")
-                ->sortable(),
-                Column::make('Actions')
-        ->label(
-            fn($row, column $column) => view('layouts.components.buttons.room-table-buttons-edit')
-            ->withRow($row)
-        )
-        ->html()
+            // Column::make("Created at", "created_at")
+            //     ->sortable(),
+            // Column::make("Updated at", "updated_at")
+            //     ->sortable(),
+        //     Column::make('Actions')
+        // ->label(
+        //     fn($row, column $column) => view('layouts.components.buttons.room-table-buttons-edit')
+        //     ->withRow($row)
+        // )
+        // ->html()
         ];
     }
 }
