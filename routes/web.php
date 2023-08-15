@@ -75,7 +75,7 @@ Route::prefix('user-management')->name('user-management.')->group(function () {
 
 // Roles
 Route::prefix('roles')->name('roles.')->group(function () {
-    Route::get('/', RoleIndex::class)->name('index')->middleware(['can:role-view']);
+    Route::get('/', RoleIndex::class)->name('index');
 });
 
 // Department

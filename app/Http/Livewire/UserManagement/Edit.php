@@ -32,12 +32,13 @@ class Edit extends Component
     public function mount($user){
         $this->userId = $user;
         $data = User::with('user_data')->find($user);
+        // dd($data);
         $this->email = $data->email;
         $this->firstName = $data->user_data->first_name;
         $this->middleName = $data->user_data->middle_name;
         $this->lastName = $data->user_data->last_name;
         $this->department = $data->user_data->department->id;
-        $this->position = $data->user_data->position->id;
+        $this->position = $data->user_data->position_id;
         $this->role_id = $data->user_data->role_id;
     }
 
