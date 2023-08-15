@@ -20,6 +20,7 @@ class Create extends Component
     public $fname;
     public $mname;
     public $lname;
+    public $role_id;
 
     // validation
     protected $rules = [
@@ -42,6 +43,7 @@ class Create extends Component
             $user = new User();
             $user->name = $this->fname.' '.$this->lname;
             $user->email = $this->email;
+            $user->role_id = $this->role_id;
             $user->password = Hash::make($this->password);
 
             if($user->save()){
@@ -61,7 +63,7 @@ class Create extends Component
             }
         } catch (\Throwable $th) {
             //throw $th;
-            dd($th->getMessage());
+            // dd($th->getMessage());
         }
     }
     // save user data to database

@@ -152,7 +152,7 @@
 
           {{-- <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a> --}}
 
-          <a href="#" data-modal-target="staticModal" data-modal-toggle="staticModal" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+          <a href="{{route('login.logout')}}" data-modal-target="staticModal" data-modal-toggle="staticModal" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
         </div>
       </div>
     </nav>
@@ -169,12 +169,12 @@
     >
       <nav x-show="currentSidebarTab == 'linksTab'" aria-label="Main" class="flex flex-col h-full">
         <!-- Logo -->
-        <div class="flex items-center  justify-center flex-shrink-0 py-10">
-            <div class="flex flex-col text-center flex-wrap">
-                <p class="capitalize text-xl mb-7 text-black text-left font-mono font-bold">Welcome</p>
+        <div class="flex items-center justify-center flex-shrink-0 py-10">
+            <div class="flex flex-col flex-wrap text-center">
+                <p class="font-mono text-xl font-bold text-left text-black capitalize mb-7">Welcome</p>
             </div>
-          {{-- <div class="capitalize text-2xl mb-7 text-black text-left font-mono font-bold">Welcome</div>
-          <div class="text-sm mb-7 text-black text-left font-mono font-bold">rjgrdijgdrsrejfhwesfhseiofesf</div> --}}
+          {{-- <div class="font-mono text-2xl font-bold text-left text-black capitalize mb-7">Welcome</div>
+          <div class="font-mono text-sm font-bold text-left text-black mb-7">rjgrdijgdrsrejfhwesfhseiofesf</div> --}}
         </div>
 
             <!-- Links mobile -->

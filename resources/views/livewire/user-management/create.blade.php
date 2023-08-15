@@ -40,7 +40,7 @@
                                 <div class="grid gap-2 md:grid-cols-2">
                                     <x-select
                                         label="Department"
-                                        wire:model.defer="model"
+                                        wire:model.defer="department"
                                         placeholder="Select department"
                                         :async-data="route('api.department.references')"
                                         option-label="name"
@@ -49,8 +49,10 @@
                                     <x-select
                                         label="Role"
                                         placeholder="Select Role"
-                                        :options="['Admin', 'User']"
-                                        wire:model.defer="role"
+                                        wire:model.defer="role_id"
+                                        :async-data="route('api.roles.references')"
+                                        option-label="permission_name"
+                                        option-value="id"
                                     />
                                 </div>
                             </div>

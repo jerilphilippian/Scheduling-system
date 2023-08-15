@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\EventType;
+use App\Models\Roles;
 use App\Models\User;
 use Illuminate\Contracts\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Builder;
@@ -46,6 +47,25 @@ class ApiController extends Controller
                 $request->exists('selected'),
                 fn (Builder $query) => $query->whereIn('id', $request->input('selected', [])),
                 fn (Builder $query) => $query->limit(10)
+            )
+            ->get();
+    }
+
+    public function rolesReferences(Request $request): Collection
+    {
+        return Roles::query()
+            ->select('id', 'permission_name')
+            ->orderBy('permission_name')
+            ->where('is_active',true)
+            ->when(
+                $request->search,
+                fn (Builder $query) => $query
+                    ->where('permission_name', 'like', "%{$request->search}%")
+            )
+            ->when(
+                $request->exists('selected'),
+                fn (Builder $query) => $query->whereIn('id', $request->input('selected', [])),
+                fn (Builder $query) => $query->limit(100)
             )
             ->get();
     }

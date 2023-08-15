@@ -2,6 +2,7 @@
 
 //DASHBOARD
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Livewire\Approval\Index as ApprovalIndex;
 use App\Http\Livewire\Approval\View as ApprovalView;
 use App\Http\Livewire\Dashboard\Index;
@@ -20,6 +21,7 @@ use App\Http\Livewire\UserManagement\Create as UserManagementCreate;
 use App\Http\Livewire\UserManagement\Department\Index as DepartmentIndex;
 use App\Http\Livewire\UserManagement\Edit as UserManagementEdit;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\UserManagement\Roles\Index as RoleIndex;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
@@ -33,15 +35,13 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
 |
 */
 
-Route::get('/', Index::class)->name('index');
+Route::get('/dashboard', Index::class)->name('index');
 // Route::get('/events', Events::class)->name('events');
 
-Route::get('/login', Login::class);
+Route::get('/login', Login::class)->name('login');
 
-Route::get('/dashboard', function(){
-    return view('welcome');
-});
-
+Route::post('authenticate', [LoginController::class, 'login'])->name('login.authenticate');
+Route::get('logout', [LoginController::class, 'logout'])->name('login.logout');
 // all events
 Route::prefix('events')->name('events.')->group(function () {
     Route::get('/', EventsIndex::class)->name('index');
@@ -68,14 +68,19 @@ Route::prefix('approval')->name('approval.')->group(function () {
 
 // user management
 Route::prefix('user-management')->name('user-management.')->group(function () {
-    Route::get('/', UserManagementIndex::class)->name('index');
+    Route::get('/', UserManagementIndex::class)->name('index')->middleware(['can:user-view']);
     Route::get('/create', UserManagementCreate::class)->name('create');
     Route::get('/edit/{user}', UserManagementEdit::class)->name('edit');
 });
 
+// Roles
+Route::prefix('roles')->name('roles.')->group(function () {
+    Route::get('/', RoleIndex::class)->name('index')->middleware(['can:role-view']);
+});
+
 // Department
 Route::prefix('department')->name('department.')->group(function () {
-    Route::get('/', DepartmentIndex::class)->name('index');
+    Route::get('/', DepartmentIndex::class)->name('index')->middleware(['can:department-view']);
 });
 
 // Route::get('/events', Events::class)->name('events');

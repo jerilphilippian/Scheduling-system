@@ -47,7 +47,7 @@
                                     />
                                     <x-select
                                         label="Role"
-                                        wire:model.defer="model"
+                                        wire:model.defer="role_id"
                                         placeholder="Select some user"
                                         option-label="name"
                                         option-value="id"

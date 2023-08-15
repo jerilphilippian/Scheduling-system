@@ -18,12 +18,15 @@ class Edit extends Component
     public $department;
     public $password;
 
+    public $role_id;
+
     public function mount($user){
         $this->userId = $user;
         $userEdit = User::with('users_data')->find($user);
         $this->email = $userEdit->email;
         $this->fname = $userEdit->users_data->first_name;
         $this->mname = $userEdit->users_data->middle_name;
+        $this->role_id = $userEdit->role_id;
         $this->lname = $userEdit->users_data->last_name;
         $this->department = $userEdit->users_data->department->id;
     }
@@ -34,6 +37,7 @@ class Edit extends Component
             DB::beginTransaction();
             $editUser = User::with('users_data')->find($this->userId);
             $editUser->name = $this->fname.' '.$this->lname;
+            $editUser->role_id = $this->role_id;
             $editUser->email = $this->email;
 
             if($editUser->save()){
