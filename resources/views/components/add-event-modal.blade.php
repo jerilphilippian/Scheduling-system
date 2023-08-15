@@ -2,12 +2,12 @@
     <div class="grid md:grid-cols-[1fr_1fr] gap-3">
         <div class="flex flex-col gap-4">
             <div>
-                <x-input icon="calendar" label="Event Name" />
+                <x-input icon="calendar" label="Event Name" wire:model.lazy='eventName' />
             </div>
             <div>
                 <x-select
                     label="Event Type"
-                    wire:model.defer="model"
+                    wire:model.defer="eventType"
                     placeholder="Select some user"
                     :async-data="route('api.eventtypes.references')"
                     option-label="type"
@@ -17,9 +17,8 @@
             <div>
                 <x-select
                     label="Room"
-                    wire:model.defer="model"
-                    placeholder="Select some user"
-                    {{-- :async-data="route('api.users.index')" --}}
+                    wire:model.defer="eventRoom"
+                    :async-data="route('api.room.references')"
                     option-label="name"
                     option-value="id"
                 />
@@ -29,23 +28,24 @@
                     label="Appointment Date"
                     placeholder="Appointment Date"
                     display-format="DD-MM-YYYY HH:mm"
-                    {{-- wire:model.defer="displayFormat" --}}
+                    without-time
+                    wire:model.defer="eventDate"
                 />
             </div>
             <div class="flex items-center gap-4">
                 <x-time-picker
                     label="Start Time"
                     placeholder="12:00 AM"
-                    wire:model.defer="timePicker"
+                    wire:model.defer="startTime"
                 />
                 <x-time-picker
                     label="End Time"
                     placeholder="12:00 AM"
-                    wire:model.defer="timePicker"
+                    wire:model.defer="endTime"
                 />
             </div>
             <div>
-                <x-textarea label="Event Description"/>
+                <x-textarea label="Event Description" wire:model='eventDescription' />
             </div>
         </div>
         <div class="flex flex-col gap-4">
@@ -81,7 +81,7 @@
 
     <x-slot name="footer">
         <div class="flex items-center justify-end">
-            <x-button dark label="Save Event" />
+            <x-button dark label="Save Event" wire:click='create' />
         </div>
     </x-slot>
 </x-modal.card>

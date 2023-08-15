@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('event_id')->constrained('event_types');
-            $table->string('feedback');//accepted or not
+            $table->string('feedback')->nullable();//accepted or not
             $table->longText('reason')->nullable();
             $table->timestamps();
         });

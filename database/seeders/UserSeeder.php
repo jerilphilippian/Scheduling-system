@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         DB::table('users')->truncate();
         DB::table('user_datas')->truncate();
-        User::factory(100)->create();
+        User::factory(20)->create();
 
         Schema::enableForeignKeyConstraints();
     }
