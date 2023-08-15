@@ -18,7 +18,7 @@ class UserTable extends DataTableComponent
 
     public function builder(): Builder
     {
-        return User::with('users_data');
+        return User::with('user_data');
     }
 
     public function columns(): array
@@ -28,9 +28,9 @@ class UserTable extends DataTableComponent
                 ->sortable(),
             Column::make("Name", "name")
                 ->sortable(),
-            Column::make("Department", "users_data.department.name")
+            Column::make("Department", "user_data.department.name")
                 ->sortable(),
-            Column::make("Position", "users_data.position")
+            Column::make("Position", "user_data.position")
                 ->sortable(),
             Column::make("Created at", "created_at")
                 ->sortable(),
