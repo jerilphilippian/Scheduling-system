@@ -1,4 +1,4 @@
-<div class="px-5 sm:pl-24">
+<div class="px-5 sm:pl-24"style="height:100vh">
     <div class="flex flex-col flex-1">
         <main class="">
             <div class="w-full mb-3">
@@ -25,13 +25,13 @@
                 </a>
             </ul>
             <!-- CONTENT -->
+            <div class="my-6 md:flex md:justify-between md:items-center">
+                <div>
+                    <x-button red label="Add Department" wire:click.lazy='openDepartmentModal'/>
+                </div>
+            </div>
             <main class="container left-0 right-0 w-full">
                 <div class="w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow ">
-                    <div class="md:flex md:justify-between md:items-center">
-                        <div>
-                            <x-button red label="Add Department" wire:click.lazy='openDepartmentModal'/>
-                        </div>
-                    </div>
 
                     <div class="mt-4">
                         <livewire:tables.livewire-table.department-table />

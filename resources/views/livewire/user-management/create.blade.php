@@ -1,4 +1,4 @@
-<div class="px-5 sm:pl-24">
+<div class="px-5 sm:pl-24"style="height:100vh">
     <div class="flex flex-col flex-1">
         <main class="flex flex-col flex-1">
             <div class="w-full">
