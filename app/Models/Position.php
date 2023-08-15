@@ -9,6 +9,10 @@ class Position extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name'
+    ];
+
     public function users(){
         return $this->hasOne(UserData::class, 'position_id', 'id');
     }
