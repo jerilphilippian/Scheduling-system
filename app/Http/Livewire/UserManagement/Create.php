@@ -23,6 +23,7 @@ class Create extends Component
     public $department;
     public $position;
     public $role;
+    public $role_id;
 
     // validation
     protected $rules = [

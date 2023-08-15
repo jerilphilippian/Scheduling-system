@@ -68,7 +68,7 @@ Route::prefix('approval')->name('approval.')->group(function () {
 
 // user management
 Route::prefix('user-management')->name('user-management.')->group(function () {
-    Route::get('/', UserManagementIndex::class)->name('index')->middleware(['can:user-view']);
+    Route::get('/', UserManagementIndex::class)->name('index');
     Route::get('/create', UserManagementCreate::class)->name('create');
     Route::get('/edit/{user}', UserManagementEdit::class)->name('edit');
 });

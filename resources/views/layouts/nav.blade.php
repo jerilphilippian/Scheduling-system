@@ -5,7 +5,7 @@
             <img src="{{asset('img/PMC-LOGO.png')}}" alt="" class="w-full h-full">
         </div>
         <div>
-            <span>{{Auth::user()->email}}</span>
+            {{-- <span>{{Auth::user()->email}}</span> --}}
         </div>
         </div>
     </div>
