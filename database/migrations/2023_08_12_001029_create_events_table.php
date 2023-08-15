@@ -21,7 +21,7 @@ return new class extends Migration
             $table->time('start_time')->nullable();
             $table->time('end_time')->nullable();
             $table->longText('event_description');
-            $table->string('status');//on going, incoming, done
+            $table->string('status')->nullable();//on going, incoming, done
             $table->boolean('is_approved')->nullable();
             $table->timestamps();
         });

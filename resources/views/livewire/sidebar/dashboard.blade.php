@@ -147,7 +147,7 @@
 
           {{-- <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a> --}}
 
-          <a href="#" data-modal-target="staticModal" data-modal-toggle="staticModal" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+          <a href="{{route('login.logout')}}" data-modal-target="staticModal" data-modal-toggle="staticModal" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
         </div>
       </div>
     </nav>
@@ -169,8 +169,8 @@
             <div class="w-[149px] h-[39px] mr">
                 <img src="{{asset('img/PMC-LOGO.png')}}" alt="">
             </div>
-          {{-- <div class="capitalize text-2xl mb-7 text-black text-left font-mono font-bold">Welcome</div>
-          <div class="text-sm mb-7 text-black text-left font-mono font-bold">rjgrdijgdrsrejfhwesfhseiofesf</div> --}}
+          {{-- <div class="font-mono text-2xl font-bold text-left text-black capitalize mb-7">Welcome</div>
+          <div class="font-mono text-sm font-bold text-left text-black mb-7">rjgrdijgdrsrejfhwesfhseiofesf</div> --}}
         </div>
 
             <!-- Links mobile -->

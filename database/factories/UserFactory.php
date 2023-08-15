@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Department;
+use App\Models\Roles;
 use App\Models\User;
 use App\Models\UserData;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -24,6 +25,8 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
+            'role_id' => null,
+            'is_active' => 1,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
@@ -48,7 +51,7 @@ class UserFactory extends Factory
                         'first_name' => $this->faker->firstName(),
                         'middle_name' => $this->faker->lastName(),
                         'last_name' => $this->faker->lastName(),
-                        'position' => $this->faker->jobTitle(),
+                        'position_id' => 1,
                         'user_id' => $user->id,
                         'department_id' => Department::all()->random(),
                         'updated_at' => now(),

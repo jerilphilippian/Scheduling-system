@@ -54,6 +54,9 @@
     </div>
 
     <div class="pt-4"><h1>Welcome Jeril gil</h1></div>
+    <div>
+        {{-- <span>{{Auth::user()->email}}</span> --}}
+    </div>
     <div class="flex-shrink-0 py-4">
         <i class="text-xl text-red-800 fa-solid fa-user"></i>
       </div>

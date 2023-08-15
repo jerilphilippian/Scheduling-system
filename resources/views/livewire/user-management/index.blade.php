@@ -15,6 +15,10 @@
                     <li class="font-bold capitalize">User Management</li>
                     <div class="nav-underline"></div>
                 </a>
+                <a href="{{route('roles.index')}}" class="relative nav">
+                    <li class="font-bold capitalize">Roles</li>
+                    <div class="nav-underline"></div>
+                </a>
                 <a href="{{route('department.index')}}" class="relative nav">
                     <li class="font-bold capitalize">Department</li>
                     <div class="nav-underline"></div>

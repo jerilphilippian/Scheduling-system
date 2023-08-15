@@ -36,7 +36,10 @@ class EventsTable extends DataTableComponent
             Column::make("Date", "event_date")
                 ->sortable(),
             Column::make("Time", "start_time")
-                ->sortable(),
+                ->sortable()
+                ->format(
+                    fn($value, $row, Column $column) => $row->start_time . ' - ' . $row->end_time
+                ),
             Column::make("Status", "status")
                 ->sortable(),
             ButtonGroupColumn::make('Actions')
@@ -51,7 +54,7 @@ class EventsTable extends DataTableComponent
                         ->location(fn($row) => '#')
                         ->attributes(function($row) {
                             return [
-                                'class' => 'py-[8px] px-[16px] bg-[#374151] text-white rounded',
+                                'class' => 'py-[8px] px-[16px] bg-[#374151] rounded',
                                 'date-modal-target' => 'editEventModal',
                                 'data-modal-toggle' => 'editEventModal'
                             ];
@@ -63,7 +66,7 @@ class EventsTable extends DataTableComponent
                         })
                         ->attributes(function($row) {
                             return [
-                                'class' => 'py-[8px] px-[16px] bg-[#ef4444] text-white rounded',
+                                'class' => 'py-[8px] px-[16px] bg-[#ef4444] rounded',
                             ];
                         }),
 

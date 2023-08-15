@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Department;
+use App\Models\Roles;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,7 +22,7 @@ class UserDataFactory extends Factory
             'first_name' => $this->faker->firstName(),
             'middle_name' => $this->faker->lastName(),
             'last_name' => $this->faker->lastName(),
-            'position' => $this->faker->jobTitle(),
+            'position_id' => 1,
             'department_id' => Department::all()->random(),
             'updated_at' => now(),
             'created_at' => now(),
