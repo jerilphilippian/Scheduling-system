@@ -12,15 +12,15 @@ trait EventTrait
     public $event_id;
     public Event $event;
 
-    public $eventEditName;
-    public $eventEditType;
-    public $eventEditRoom;
-    public $eventEditDate;
-    public $startEditTime;
-    public $endEditTime;
-    public $eventEditDescription;
-    public $eventEditUser = [];
-    public $selectedEditUsers;
+    public $eventName;
+    public $eventType;
+    public $eventRoom;
+    public $eventDate;
+    public $startTime;
+    public $endTime;
+    public $eventDescription;
+    public $eventUser = [];
+    public $selectedUsers;
 
     public function editEventModal(Event $id)
     {
@@ -28,14 +28,14 @@ trait EventTrait
         $this->event->load('event_type');
         $this->editEventModal = true;
         $this->event_id = $id;
-        $this->eventEditName = $this->event->name;
-        $this->eventEditType = $this->event->event_type->id;
-        $this->eventEditRoom = $this->event->room->id;
-        $this->eventEditDate = $this->event->event_date;
-        $this->startEditTime = $this->event->start_time;
-        $this->endEditTime = $this->event->end_time;
-        $this->eventEditDescription = $this->event->event_description;
-        $this->eventEditUser = Arr::map($this->event->users->toArray(), function($value){
+        $this->eventName = $this->event->name;
+        $this->eventType = $this->event->event_type->id;
+        $this->eventRoom = $this->event->room->id;
+        $this->eventDate = $this->event->event_date;
+        $this->startTime = $this->event->start_time;
+        $this->endTime = $this->event->end_time;
+        $this->eventDescription = $this->event->event_description;
+        $this->eventUser = Arr::map($this->event->users->toArray(), function($value){
             return $value['id'];
         });
 
