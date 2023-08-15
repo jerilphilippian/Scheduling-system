@@ -205,12 +205,12 @@
                 <span>Events</span>
             </a>
 
-            <a href="{{route('approval.index')}}" class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] hover:text-white {{ request()->routeIs('approval.index') ? 'text-white bg-[#860909] ' : '' }}">
+            {{-- <a href="{{route('approval.index')}}" class="flex items-center space-x-2 text-black transition-colors rounded-lg group hover:bg-[#860909] hover:text-white {{ request()->routeIs('approval.index') ? 'text-white bg-[#860909] ' : '' }}">
                 <span aria-hidden="true" class="p-2 transition-colors rounded-lg group-hover:bg-[#860909] group-hover:text-white">
                     <i class="text-lg fa-solid fa-calendar-check"></i>
                 </span>
                 <span>Approval</span>
-            </a>
+            </a> --}}
 
           <a
             href="{{route('room')}}"
