@@ -30,7 +30,11 @@ Route::get('room-references', [ApiController::class, 'roomReferences'])
 Route::get('roles', [ApiController::class, 'rolesReferences'])
 ->name('api.roles.references');
 
+Route::get('position', [ApiController::class, 'positionReferences'])
+->name('api.position.references');
+
 Route::get('user-references', [ApiController::class, 'userReferences'])
 ->name('api.user.references');
+
 
 

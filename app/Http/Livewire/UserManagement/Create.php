@@ -17,53 +17,64 @@ class Create extends Component
     public $email;
     public $password;
     public $confirmPassword;
-    public $fname;
-    public $mname;
-    public $lname;
-    public $role_id;
+    public $firstName;
+    public $middleName;
+    public $lastName;
+    public $department;
+    public $position;
+    public $role;
 
     // validation
     protected $rules = [
+        'firstName' => 'required',
+        'lastName' => 'required',
         'email' => 'required|email',
-        'fname' => 'required',
-        'mname' => 'required',
-        'lname' => 'required',
         'password' => 'required|same:confirmPassword',
-        'confirmPassword' => 'required|same:password'
+        'confirmPassword' => 'required|same:password',
+        'department' => 'required',
+        'position' => 'required',
+        'role' => 'required',
     ];
 
-    // save user data to database
     public function saveUser(){
 
-        // validate the input
         $this->validate();
 
         try {
             DB::beginTransaction();
             $user = new User();
-            $user->name = $this->fname.' '.$this->lname;
+            $user->name = $this->firstName.' '.$this->lastName;
             $user->email = $this->email;
             $user->role_id = $this->role_id;
             $user->password = Hash::make($this->password);
+            $user->role = $this->role;
 
             if($user->save()){
                 $userData = new UserData();
                 $userData->user_id = $user->id;
-                $userData->first_name = $this->fname;
-                $userData->middle_name = $this->mname;
-                $userData->last_name = $this->lname;
-                $userData->position = 'CEO';
-                $userData->department_id = 1;
+                $userData->first_name = $this->firstName;
+                $userData->middle_name = $this->middleName;
+                $userData->last_name = $this->lastName;
+                $userData->department_id = $this->department;
+                $userData->position_id = $this->position;
 
-                $userData->save();
-                DB::commit();
-
-                return redirect()->route('user-management.index');
-
+                if($userData->save())
+                {
+                    DB::commit();
+                    return redirect()->route('user-management.index');
+                }
+                else
+                {
+                    DB::rollBack();
+                }
+            }
+            else
+            {
+                DB::rollBack();
             }
         } catch (\Throwable $th) {
-            //throw $th;
-            // dd($th->getMessage());
+            //DB::rollBack();
+            dd($th->getMessage());
         }
     }
     // save user data to database

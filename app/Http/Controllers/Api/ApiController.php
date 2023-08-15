@@ -7,6 +7,7 @@ use App\Models\Department;
 use App\Models\EventType;
 use App\Models\Roles;
 use App\Models\Room;
+use App\Models\Position;
 use App\Models\User;
 use Illuminate\Contracts\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Builder;
@@ -85,6 +86,24 @@ class ApiController extends Controller
                 $request->exists('selected'),
                 fn (Builder $query) => $query->whereIn('id', $request->input('selected', [])),
                 fn (Builder $query) => $query->limit(100)
+            )
+            ->get();
+    }
+
+    public function positionReferences(Request $request): Collection
+    {
+        return Position::query()
+            ->select('id', 'name')
+            ->orderBy('name')
+            ->when(
+                $request->search,
+                fn (Builder $query) => $query
+                    ->where('name', 'like', "%{$request->search}%")
+            )
+            ->when(
+                $request->exists('selected'),
+                fn (Builder $query) => $query->whereIn('id', $request->input('selected', [])),
+                fn (Builder $query) => $query->limit(10)
             )
             ->get();
     }
