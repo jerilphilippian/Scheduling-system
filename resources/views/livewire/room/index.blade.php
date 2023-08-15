@@ -5,7 +5,7 @@
         <!-- Main -->
         <main class="flex flex-col flex-1 ">
                 <div class="w-full">
-                    <p class="capitalize text-2xl mb-7 text-white font-mono font-bold animate__animated animate__bounceInLeft"><a href="{{route('room')}}">Room</a></p>
+                    <p class="capitalize text-2xl mb-7 text-black font-mono font-bold animate__animated animate__bounceInLeft"><a href="{{route('room')}}">Room</a></p>
                    <!-- BREADCRUMBS -->
                    <nav class="text-white">
                       <ol class="inline-flex gap-1 p-0 list-none">

@@ -73,18 +73,13 @@
     <!-- Left mini bar -->
     <nav
       aria-label="Options"
-      class="z-20 flex-col items-center flex-shrink-0 hidden w-16 h-screen py-4 bg-white border-r-2 border-indigo-100 shadow-md sm:flex"
+      style="background-image:linear-gradient(to top, rgba(255, 255, 255, 0.168),rgba(255, 255, 255, 0.168), rgba(117, 19, 19, 0.529)),url('/img/calendar.png')"
+      class="z-20 bg-cover flex-col items-center flex-shrink-0 hidden w-16 h-screen py-4  shadow-md sm:flex"
     >
       <!-- Logo -->
-      <div class="flex-shrink-0 py-4">
-        <a href="">
-          <img
-            class="w-10 h-auto"
-            src="{{asset('img/philippian-icon-transparent.png')}}"
-            alt="K-UI"
-          />
-        </a>
-      </div>
+      {{-- <div class="flex-shrink-0 py-4">
+        <i class="text-xl text-red-800 fa-solid fa-user"></i>
+      </div> --}}
       <div class="flex flex-col items-center flex-1 p-2 space-y-4">
         <!-- Menu button -->
         <button @click="(isSidebarOpen && currentSidebarTab == 'linksTab') ? isSidebarOpen = false : isSidebarOpen = true; currentSidebarTab = 'linksTab'" class="p-2 transition-colors rounded-lg shadow-md hover:bg-[#860909] hover:text-white focus:outline-none focus:ring focus:[#860909] focus:ring-offset-white focus:ring-offset-2"
@@ -104,7 +99,7 @@
         <!-- Messages button -->
 
         <!-- Notifications button -->
-        <button
+        {{-- <button
           @click="(isSidebarOpen && currentSidebarTab == 'notificationsTab') ? isSidebarOpen = false : isSidebarOpen = true; currentSidebarTab = 'notificationsTab'" class="p-2 transition-colors rounded-lg shadow-md hover:bg-[#860909] hover:text-white focus:outline-none focus:ring focus:bg-[#860909] focus:ring-offset-white focus:ring-offset-2"
           :class="(isSidebarOpen && currentSidebarTab == 'notificationsTab') ? 'text-white bg-[#860909]' : 'text-gray-500 bg-white'">
             <span class="relative flex w-3 h-1">
@@ -128,7 +123,7 @@
               d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
             />
           </svg>
-        </button>
+        </button> --}}
       </div>
 
       <!-- User avatar -->
@@ -165,13 +160,14 @@
       x-transition:leave-start="translate-x-0"
       x-transition:leave-end="-translate-x-full"
       x-show="isSidebarOpen"
-      class="fixed inset-y-0 left-0 z-10 flex-shrink-0 w-64 bg-white border-r-2 border-indigo-100 shadow-lg sm:left-16 rounded-tr-3xl rounded-br-3xl sm:w-72 lg:static lg:w-64"
+      style="background-image:linear-gradient(to left, rgba(255, 255, 255, 0.048), rgba(117, 19, 19, 0.529)),url('/img/coverphoto.jpg')"
+      class="fixed inset-y-0 left-0 z-10 flex-shrink-0 w-64 border-r-2 border-indigo-100 shadow-lg sm:left-16 rounded-tr-3xl rounded-br-3xl sm:w-72 lg:static lg:w-64"
     >
       <nav x-show="currentSidebarTab == 'linksTab'" aria-label="Main" class="flex flex-col h-full">
         <!-- Logo -->
         <div class="flex items-center  justify-center flex-shrink-0 py-10">
-            <div class="flex flex-col text-center flex-wrap">
-                <p class="capitalize text-xl mb-7 text-black text-left font-mono font-bold">Welcome</p>
+            <div class="w-[149px] h-[39px] mr">
+                <img src="{{asset('img/PMC-LOGO.png')}}" alt="">
             </div>
           {{-- <div class="capitalize text-2xl mb-7 text-black text-left font-mono font-bold">Welcome</div>
           <div class="text-sm mb-7 text-black text-left font-mono font-bold">rjgrdijgdrsrejfhwesfhseiofesf</div> --}}

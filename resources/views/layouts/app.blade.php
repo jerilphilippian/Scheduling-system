@@ -99,8 +99,8 @@ window.onscroll = () => {
 </head>
 {{-- bg-[url('/img/coverphoto.jpg')] --}}
 
-<body class="py-24"
-    style="background-image:linear-gradient(to left, rgba(255, 255, 255, 0.048), rgba(117, 19, 19, 0.529)),url('/img/coverphoto.jpg')"
+<body class="py-24 bg[#EEEDED]"
+
     x-data="{isSettingsPanelOpen:false}">
     {{--
 
@@ -118,13 +118,11 @@ window.onscroll = () => {
                 <!-- Sidebar-->
                 @include('livewire.sidebar.dashboard')
                 <!-- Sidebar end-->
-                <div class="flex flex-col flex-1 ">
 
                     <!--header-->
                     @include('layouts.nav')
                     <!--header end-->
 
-                </div>
             </div>
 
             <!-- Panels -->
@@ -165,21 +163,26 @@ window.onscroll = () => {
             type: "line",
             data: {
                 labels: xValues,
+
                 datasets: [{
+                    label: 'I.T',
                     data: [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 7830, 2478],
-                    borderColor: "red",
+                    borderColor: "#C70039",
                     fill: false
                 }, {
+                    label: 'HR',
                     data: [1600, 1700, 1700, 1900, 2000, 2700, 4000, 5000, 6000, 7000],
-                    borderColor: "green",
+                    borderColor: "#557A46",
                     fill: false
                 }, {
+                    label: 'SALES',
                     data: [300, 700, 2000, 5000, 6000, 4000, 2000, 1000, 200, 100],
-                    borderColor: "blue",
+                    borderColor: "#4477CE",
                     fill: false
                 },{
+                    label: 'MARKETING',
                     data: [300, 800, 2500, 5400, 6400, 4400, 2400, 1400, 400, 400],
-                    borderColor: "yellow",
+                    borderColor: "#EBE76C",
                     fill: false
                 }]
             },
@@ -265,13 +268,13 @@ window.onscroll = () => {
         series: [
           {
             name: "Preset",
-            color: "#ef4444",
+            color: "#C70039",
             data: [ "1490", "1480", "1470", "1460", "1450", "1440","1420", "1420", "1620", "1820", "1420", "1650", "2120"],
           },
           {
             name: "Previous",
             data: [ "870", "860", "850", "840", "830", "820","788", "810", "866", "788", "1100", "1200"],
-            color: "#a8a29e",
+            color: "#272829",
           }
         ],
         chart: {

@@ -1,5 +1,5 @@
 <div class="px-5 sm:pl-24">
-    <div class="capitalize text-2xl mb-7 text-white font-mono font-bold animate__animated animate__bounceInLeft">Dashboard</div>
+    <div class="capitalize text-2xl mb-7 text-black font-mono font-bold animate__animated animate__bounceInLeft">Dashboard</div>
     <div class="flex flex-1 flex-col">
         <!-- Main -->
         <main class="flex flex-col flex-1 ">

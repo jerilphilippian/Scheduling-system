@@ -1,6 +1,6 @@
 <div class="px-5 sm:pl-24"style="height:100vh;">
     <div class="w-full">
-        <p class="capitalize text-2xl mb-7 text-white font-mono font-bold animate__animated animate__bounceInLeft">
+        <p class="capitalize text-2xl mb-7 text-black font-mono font-bold animate__animated animate__bounceInLeft">
           Invitations
         </p>
         <!-- BREADCRUMBS -->
