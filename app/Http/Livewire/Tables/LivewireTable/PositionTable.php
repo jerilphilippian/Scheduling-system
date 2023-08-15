@@ -4,29 +4,23 @@ namespace App\Http\Livewire\Tables\LivewireTable;
 
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\Department;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
-use Rappasoft\LaravelLivewireTables\Views\Columns\LinkColumn;
+use App\Models\Position;
 
-class DepartmentTable extends DataTableComponent
+class PositionTable extends DataTableComponent
 {
-    protected $model = Department::class;
+    protected $model = Position::class;
 
     public function configure(): void
     {
         $this->setPrimaryKey('id');
     }
 
-    public function builder(): Builder
-    {
-        return Department::query()->select('departments.*');
-    }
-
     public function columns(): array
     {
         return [
-            Column::make("Department name", "name")
+            Column::make("Id", "id")
+                ->sortable(),
+            Column::make("Name", "name")
                 ->sortable()
                 ->searchable(),
             Column::make("Created at", "created_at")
@@ -35,7 +29,7 @@ class DepartmentTable extends DataTableComponent
                 ->sortable(),
             Column::make('Actions')
                 ->label(
-                    fn($row, column $column) => view('layouts.components.buttons.department-button-edit')
+                    fn($row, column $column) => view('layouts.components.buttons.position-button-edit')
                     ->withRow($row)
                 )
                 ->html()
@@ -43,6 +37,6 @@ class DepartmentTable extends DataTableComponent
     }
 
     public function openEditModal($row){
-        $this->emitTo('user-management.department.index', 'editRoles', $row );
+        $this->emitTo('user-management.position.index', 'editPosition', $row );
     }
 }

@@ -5,12 +5,12 @@
         </p>
         <!-- BREADCRUMBS -->
         <nav class="text-black">
-           <ol class="inline-flex gap-1 p-0 list-none">
+           <ol class="inline-flex gap-1 p-0 text-white list-none">
               <li class="flex items-end ">
                  <p class="">Events</p>
               </li>
               <li>
-                 <svg class="w-5 h-6 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                 <svg class="w-5 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="9 18 15 12 9 6" />
                  </svg>
               </li>

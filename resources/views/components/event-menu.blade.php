@@ -11,4 +11,8 @@
         <li class="font-bold capitalize">Invitations</li>
         <div class="nav-underline"></div>
     </a>
+    <a href="{{route('approval.index')}}" class="relative nav">
+        <li class="font-bold capitalize">Approval</li>
+        <div class="nav-underline"></div>
+    </a>
 </ul>

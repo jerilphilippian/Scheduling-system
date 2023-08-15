@@ -71,10 +71,11 @@ class Index extends Component
 
             if ($event) {
                 DB::commit();
+                $this->resetField();
+                $this->emit('refreshDatatable');
                 $this->dialog()->success(
-                    $title = 'Profile saved',
-                    $description = 'Your profile was successfully saved'
-
+                    $title = 'Event Save',
+                    $description = 'New event was successfully saved'
                 );
             } else {
                 $this->dialog()->error(
@@ -109,6 +110,10 @@ class Index extends Component
     public function updatedEventUser($value)
     {
         $this->selectedUsers = User::with('user_data')->whereIn('id', $value)->get();
+    }
+
+    public function resetField(){
+        $this->reset(['addEventModal', 'editEventModal']);
     }
 
     public function render()

@@ -6,6 +6,7 @@ use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\Event;
 use App\Traits\EventTrait;
+use App\Models\EventUser;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Blade;
 use Rappasoft\LaravelLivewireTables\Views\Columns\BooleanColumn;
@@ -81,5 +82,9 @@ class EventsTable extends DataTableComponent
 
             //     ]),
         ];
+    }
+
+    public function openEditModal($id){
+        dd('test');
     }
 }

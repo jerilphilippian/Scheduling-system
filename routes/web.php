@@ -20,6 +20,7 @@ use App\Http\Livewire\Profile\Index as ProfileIndex;
 use App\Http\Livewire\UserManagement\Create as UserManagementCreate;
 use App\Http\Livewire\UserManagement\Department\Index as DepartmentIndex;
 use App\Http\Livewire\UserManagement\Edit as UserManagementEdit;
+use App\Http\Livewire\UserManagement\Position\Index as PositionIndex;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\UserManagement\Roles\Index as RoleIndex;
 use Symfony\Component\HttpKernel\Profiler\Profile;
@@ -82,6 +83,11 @@ Route::prefix('roles')->name('roles.')->group(function () {
 // Department
 Route::prefix('department')->name('department.')->group(function () {
     Route::get('/', DepartmentIndex::class)->name('index')->middleware(['can:department-view']);
+});
+
+// Department
+Route::prefix('position')->name('position.')->group(function () {
+    Route::get('/', PositionIndex::class)->name('index');
 });
 
 // Route::get('/events', Events::class)->name('events');

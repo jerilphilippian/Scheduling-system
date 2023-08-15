@@ -1,4 +1,4 @@
-<div class="px-5 sm:pl-24"style="height:100vh">
+<div class="px-5 sm:pl-24">
     <div class="flex flex-col flex-1">
         <main class="">
             <div class="w-full mb-3">
@@ -10,60 +10,59 @@
                     </ol>
                 </nav>
             </div>
-
             {{-- menu --}}
             @include('components.user-management-menu')
             {{-- menu --}}
             <!-- CONTENT -->
-            <div class="my-6 md:flex md:justify-between md:items-center">
-                <div>
-                    <x-button red label="Add Department" wire:click.lazy='openDepartmentModal'/>
-                </div>
-            </div>
             <main class="container left-0 right-0 w-full">
                 <div class="w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow ">
+                    <div class="md:flex md:justify-between md:items-center">
+                        <div>
+                            <x-button red label="Add Position" wire:click.lazy='addPositionModal'/>
+                        </div>
+                    </div>
 
                     <div class="mt-4">
-                        <livewire:tables.livewire-table.department-table />
+                        <livewire:tables.livewire-table.position-table />
                     </div>
                 </div>
             </main>
 
-            {{-- add department modal --}}
-            <x-modal.card title="Add Department" blur wire:model.defer="departmentAddModal">
-                <form wire:submit.prevent="saveDepartment">
+            {{-- add position modal --}}
+            <x-modal.card title="Add Position" blur wire:model.defer="openAddPositionModal">
+                <div>
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div class="col-span-1 sm:col-span-2">
-                            <x-input label="Department name" wire:model.lazy='departmentName' />
+                            <x-input label="Position name" wire:model.lazy='position' />
                         </div>
                     </div>
 
 
                     <x-slot name="footer">
                         <div class="flex items-center justify-end">
-                            <x-button red label="Save" type="submit" />
+                            <x-button red label="Save" wire:click='savePosition' />
                         </div>
                     </x-slot>
-                </form>
+                </div>
             </x-modal.card>
             {{-- add department modal --}}
 
             {{-- edit department modal --}}
-            <x-modal.card title="Edit Department" blur wire:model.defer="departmentEditModal">
-                <form wire:submit.prevent="updateDepartment">
+            <x-modal.card title="Edit Position" blur wire:model.defer="openEditModal">
+                <div>
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div class="col-span-1 sm:col-span-2">
-                            <x-input label="Department name" wire:model.lazy='departmentName' />
+                            <x-input label="Department name" wire:model.lazy='editPosition' />
                         </div>
                     </div>
 
 
                     <x-slot name="footer">
                         <div class="flex items-center justify-end">
-                            <x-button red label="Save" type="submit" />
+                            <x-button red label="Save" wire:click='editPosition' />
                         </div>
                     </x-slot>
-                </form>
+                </div>
             </x-modal.card>
             {{-- edit department modal --}}
 
@@ -71,4 +70,5 @@
         </main>
     </div>
 </div>
+
 

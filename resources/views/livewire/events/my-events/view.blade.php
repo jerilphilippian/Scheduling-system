@@ -30,10 +30,10 @@
             <div class="">
                 <div class="mb-3">
                     <div class="flex flex-col">
-                        <div class="flex items-center gap-3 mb-2 text-sm text-gray-600">
+                        {{-- <div class="flex items-center gap-3 mb-2 text-sm text-gray-600">
                             <p class="font-bold">Event Organizer:</p>
                             <p>{{$eventOrganizer}}</p>
-                        </div>
+                        </div> --}}
                         <div class="flex gap-5 item-center" >
                             <p class="text-sm text-gray-600">
                                 <i class="fa-solid fa-calendar-days"></i>
@@ -55,7 +55,8 @@
         </div>
         <div class="p-4 bg-white rounded shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
             <h3 class="mb-3 text-lg font-bold">Invited Participants</h3>
-            <div class="relative overflow-x-auto">
+            <livewire:tables.livewire-table.my-event-participant-table />
+            {{-- <div class="relative overflow-x-auto">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -117,7 +118,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
