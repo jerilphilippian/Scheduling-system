@@ -18,7 +18,7 @@ class Edit extends Component
     public $lastName;
     public $department;
     public $position;
-    public $role;
+    public $role_id;
 
     protected $rules = [
         'firstName' => 'required',
@@ -26,7 +26,7 @@ class Edit extends Component
         'email' => 'required|email',
         'department' => 'required',
         'position' => 'required',
-        'role' => 'required',
+        'role_id' => 'required',
     ];
 
     public function mount($user){
@@ -38,7 +38,7 @@ class Edit extends Component
         $this->lastName = $data->user_data->last_name;
         $this->department = $data->user_data->department->id;
         $this->position = $data->user_data->position->id;
-        $this->role = $data->user_data->role;
+        $this->role_id = $data->user_data->role_id;
     }
 
     // update user data
@@ -49,7 +49,7 @@ class Edit extends Component
             $editUser = User::with('user_data')->find($this->userId);
             $editUser->name = $this->firstName.' '.$this->lastName;
             $editUser->email = $this->email;
-            $editUser->role = $this->role;
+            $editUser->role_id = $this->role_id;
 
             if($editUser->save()){
                 $editUser->user_data->first_name = $this->firstName;

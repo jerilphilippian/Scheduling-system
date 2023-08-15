@@ -46,18 +46,19 @@
                                     />
                                     <x-select
                                         label="Position"
-                                        wire:model.defer="model"
+                                        wire:model.defer="position"
                                         placeholder="Select Position"
                                         :async-data="route('api.position.references')"
                                         option-label="name"
                                         option-value="id"
-                                        wire:model.defer="position"
                                     />
                                     <x-select
                                         label="Role"
+                                        wire:model.defer="role_id"
                                         placeholder="Select Role"
-                                        :options="['Admin', 'User']"
-                                        wire:model.defer="role"
+                                        :async-data="route('api.roles.references')"
+                                        option-label="permission_name"
+                                        option-value="id"
                                     />
                                 </div>
                             </div>

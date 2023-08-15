@@ -34,12 +34,13 @@ class Create extends Component
         'confirmPassword' => 'required|same:password',
         'department' => 'required',
         'position' => 'required',
-        'role' => 'required',
+        'role_id' => 'required',
     ];
 
     public function saveUser(){
 
         $this->validate();
+        // dd("Asd");
 
         try {
             DB::beginTransaction();
@@ -48,7 +49,6 @@ class Create extends Component
             $user->email = $this->email;
             $user->role_id = $this->role_id;
             $user->password = Hash::make($this->password);
-            $user->role = $this->role;
 
             if($user->save()){
                 $userData = new UserData();
@@ -59,22 +59,15 @@ class Create extends Component
                 $userData->department_id = $this->department;
                 $userData->position_id = $this->position;
 
-                if($userData->save())
-                {
-                    DB::commit();
-                    return redirect()->route('user-management.index');
-                }
-                else
-                {
-                    DB::rollBack();
-                }
-            }
-            else
+                DB::commit();
+
+                $userData->save();
+                return redirect()->route('user-management.index');
+            }else
             {
                 DB::rollBack();
             }
         } catch (\Throwable $th) {
-            //DB::rollBack();
             dd($th->getMessage());
         }
     }
