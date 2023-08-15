@@ -29,7 +29,7 @@
                 <div class="w-full h-full p-6 bg-white border border-gray-200 rounded-lg shadow ">
                     <div class="md:flex md:justify-between md:items-center">
                         <div>
-                            <x-button href="{{route('user-management.create')}}" red label="Add Employee"/>
+                            <x-button href="{{route('user-management.create')}}" red label="Add User"/>
                         </div>
                     </div>
 

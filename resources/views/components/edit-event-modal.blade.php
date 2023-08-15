@@ -1,62 +1,34 @@
-<x-modal.card title="Add Event" blur wire:model.defer="editEventModal">
+<x-modal.card title="Edit Event" blur wire:model.defer="editEventModal">
     <div class="grid md:grid-cols-[1fr_1fr] gap-3">
         <div class="flex flex-col gap-4">
             <div>
-                <x-input icon="calendar" label="Event Name" />
+                <x-input icon="calendar" label="Event Name" wire:model.lazy='eventEditName' />
             </div>
             <div>
-                <x-select
-                    label="Event Type"
-                    wire:model.defer="model"
-                    placeholder="Select some user"
-                    {{-- :async-data="route('api.users.index')" --}}
-                    option-label="name"
-                    option-value="id"
-                />
+                <x-select label="Event Type" wire:model.defer="eventEditType" placeholder="Select some user"
+                    :async-data="route('api.eventtypes.references')" option-label="type" option-value="id"
+                    x-on:selected="id" />
             </div>
             <div>
-                <x-select
-                    label="Room"
-                    wire:model.defer="model"
-                    placeholder="Select some user"
-                    {{-- :async-data="route('api.users.index')" --}}
-                    option-label="name"
-                    option-value="id"
-                />
+                <x-select label="Room" wire:model.defer="eventEditRoom" :async-data="route('api.room.references')"
+                    option-label="name" option-value="id" />
             </div>
             <div>
-                <x-datetime-picker
-                    label="Appointment Date"
-                    placeholder="Appointment Date"
-                    display-format="DD-MM-YYYY HH:mm"
-                    {{-- wire:model.defer="displayFormat" --}}
-                />
+                <x-datetime-picker label="Appointment Date" placeholder="Appointment Date"
+                    display-format="DD-MM-YYYY HH:mm" without-time wire:model.defer="eventEditDate" />
             </div>
             <div class="flex items-center gap-4">
-                <x-time-picker
-                    label="Start Time"
-                    placeholder="12:00 AM"
-                    wire:model.defer="timePicker"
-                />
-                <x-time-picker
-                    label="End Time"
-                    placeholder="12:00 AM"
-                    wire:model.defer="timePicker"
-                />
+                <x-time-picker label="Start Time" placeholder="12:00 AM" wire:model.defer="startEditTime" />
+                <x-time-picker label="End Time" placeholder="12:00 AM" wire:model.defer="endEditTime" />
             </div>
             <div>
-                <x-textarea label="Event Description"/>
+                <x-textarea label="Event Description" wire:model='eventEditDescription' />
             </div>
         </div>
         <div class="flex flex-col gap-4">
             <div>
-                <x-select
-                    label="Participants"
-                    placeholder="Select many statuses"
-                    multiselect
-                    :options="['Active', 'Pending', 'Stuck', 'Done']"
-                    wire:model.defer="model"
-                />
+                <x-select label="Participants" wire:model="eventEditUser" multiselect
+                    :async-data="route('api.user.references')" option-label="full_name" option-value="id" />
             </div>
             <div>
                 <h2 class="font-bold text-[#374151] mb-1">Selected participants</h2>

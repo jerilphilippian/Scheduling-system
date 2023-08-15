@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Events\MyEvents;
 
 use App\Models\EventType;
 use App\Models\Room;
+use App\Models\User;
+use App\Traits\EventTrait;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -14,20 +16,18 @@ use WireUi\View\Components\Modal;
 class Index extends Component
 {
     use Actions;
+    use EventTrait;
 
     public $addEventModal = false;
-    public $editEventModal = false;
+    // public $editEventModal = false;
     public $event_type;
 
     //Datas of the event
-    public $eventName;
-    public $eventType;
-    public $eventRoom;
-    public $eventDate;
-    public $startTime;
-    public $endTime;
-    public $eventDescription;
-    public $eventUser = [];
+
+
+    public $listeners = [
+        'editModal' => 'editEventModal'
+    ];
 
     public $rules = [
         'eventName' => 'required',
@@ -41,7 +41,8 @@ class Index extends Component
     ];
 
     //Create functions of events
-    public function create(){
+    public function create()
+    {
 
         $validated = $this->validate();
 
@@ -55,13 +56,13 @@ class Index extends Component
 
             $event = $room->events()->create(
                 [
-                    'name'=> $this->eventName,
-                    'event_type_id'=> $this->eventType,
-                    'room_id'=> $this->eventRoom,
-                    'event_date'=> $this->eventDate,
-                    'start_time'=> $this->startTime,
-                    'end_time'=> $this->endTime,
-                    'event_description'=> $this->eventDescription,
+                    'name' => $this->eventName,
+                    'event_type_id' => $this->eventType,
+                    'room_id' => $this->eventRoom,
+                    'event_date' => $this->eventDate,
+                    'start_time' => $this->startTime,
+                    'end_time' => $this->endTime,
+                    'event_description' => $this->eventDescription,
                 ]
             );
 
@@ -82,7 +83,6 @@ class Index extends Component
                 );
                 DB::rollBack();
             }
-
         } catch (\Throwable $th) {
             DB::rollBack();
             dd($th->getMessage());
@@ -94,14 +94,21 @@ class Index extends Component
 
 
     // function to open modal
-    public function openModal(){
+    public function openModal()
+    {
         $this->addEventModal = true;
     }
 
     // function for edit modal
-    public function editModal(){
-        // $this->editEventModal = true;
-        dd('test');
+    // public function editModal()
+    // {
+    //     // $this->editEventModal = true;
+    //     dd('test');
+    // }
+
+    public function updatedEventUser($value)
+    {
+        $this->selectedUsers = User::with('user_data')->whereIn('id', $value)->get();
     }
 
     public function render()
