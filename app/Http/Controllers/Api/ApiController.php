@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\EventType;
+use App\Models\Position;
 use App\Models\User;
 use Illuminate\Contracts\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Builder;
@@ -35,6 +36,24 @@ class ApiController extends Controller
     public function departmentReferences(Request $request): Collection
     {
         return Department::query()
+            ->select('id', 'name')
+            ->orderBy('name')
+            ->when(
+                $request->search,
+                fn (Builder $query) => $query
+                    ->where('name', 'like', "%{$request->search}%")
+            )
+            ->when(
+                $request->exists('selected'),
+                fn (Builder $query) => $query->whereIn('id', $request->input('selected', [])),
+                fn (Builder $query) => $query->limit(10)
+            )
+            ->get();
+    }
+
+    public function positionReferences(Request $request): Collection
+    {
+        return Position::query()
             ->select('id', 'name')
             ->orderBy('name')
             ->when(

@@ -24,7 +24,11 @@ Route::get('eventtype-references', [ApiController::class, 'eventtypesReferences'
 Route::get('department', [ApiController::class, 'departmentReferences'])
 ->name('api.department.references');
 
+Route::get('position', [ApiController::class, 'positionReferences'])
+->name('api.position.references');
+
 Route::get('user-references', [ApiController::class, 'userReferences'])
 ->name('api.user.references');
+
 
 

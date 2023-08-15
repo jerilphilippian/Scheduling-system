@@ -5,47 +5,70 @@ namespace App\Http\Livewire\UserManagement;
 use App\Models\User;
 use App\Models\UserData;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class Edit extends Component
 {
-
     public $userId;
     public $email;
-    public $fname;
-    public $mname;
-    public $lname;
+    public $firstName;
+    public $middleName;
+    public $lastName;
     public $department;
-    public $password;
+    public $position;
+    public $role;
+
+    protected $rules = [
+        'firstName' => 'required',
+        'lastName' => 'required',
+        'email' => 'required|email',
+        'department' => 'required',
+        'position' => 'required',
+        'role' => 'required',
+    ];
 
     public function mount($user){
         $this->userId = $user;
-        $userEdit = User::with('users_data')->find($user);
-        $this->email = $userEdit->email;
-        $this->fname = $userEdit->users_data->first_name;
-        $this->mname = $userEdit->users_data->middle_name;
-        $this->lname = $userEdit->users_data->last_name;
-        $this->department = $userEdit->users_data->department->id;
+        $data = User::with('user_data')->find($user);
+        $this->email = $data->email;
+        $this->firstName = $data->user_data->first_name;
+        $this->middleName = $data->user_data->middle_name;
+        $this->lastName = $data->user_data->last_name;
+        $this->department = $data->user_data->department->id;
+        $this->position = $data->user_data->position->id;
+        $this->role = $data->user_data->role;
     }
 
     // update user data
     public function updateUser(){
+        $this->validate();
         try {
             DB::beginTransaction();
-            $editUser = User::with('users_data')->find($this->userId);
-            $editUser->name = $this->fname.' '.$this->lname;
+            $editUser = User::with('user_data')->find($this->userId);
+            $editUser->name = $this->firstName.' '.$this->lastName;
             $editUser->email = $this->email;
+            $editUser->role = $this->role;
 
             if($editUser->save()){
-                $editUser->users_data->first_name = $this->fname;
-                $editUser->users_data->middle_name = $this->mname;
-                $editUser->users_data->last_name = $this->lname;
-                $editUser->users_data->department_id = $this->department;
-                DB::commit();
-                $editUser->users_data->save();
-                return redirect()->route('user-management.index');
+                $editUser->user_data->first_name = $this->firstName;
+                $editUser->user_data->middle_name = $this->middleName;
+                $editUser->user_data->last_name = $this->lastName;
+                $editUser->user_data->department_id = $this->department;
+                $editUser->user_data->position_id = $this->position;
+
+                if($editUser->user_data->save())
+                {
+                    DB::commit();
+                    return redirect()->route('user-management.index');
+                }
+                else
+                {
+                    DB::rollBack();
+                }
             }else{
-                dd('user update failed');
+                DB::rollBack();
             }
         } catch (\Throwable $th) {
             DB::rollBack();

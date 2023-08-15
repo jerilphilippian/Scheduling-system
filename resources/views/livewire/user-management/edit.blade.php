@@ -26,31 +26,38 @@
                         <div class="grid md:grid-cols-[30%_1fr] gap-6">
                             {{-- account --}}
                             <div class="flex flex-col gap-3">
-                                <x-input class="pr-28" label="Email Address" suffix="@mail.com" wire:model.lazy='email' />
-                                <x-inputs.password label="Password" wire:model.lazy='password' />
-                                <x-inputs.password label="Repeat Password 🙈" wire:model.lazy='confirmPassword' />
+                                <x-input class="pr-28" label="Email Address" suffix="@mail.com" wire:model='email' />
                             </div>
                             <div class="flex flex-col gap-3">
                                 <div class="grid gap-2 md:grid-cols-3">
-                                    <x-input label="First Name" placeholder="first name" wire:model.lazy='fname' />
-                                    <x-input label="Middle Name" placeholder="middle name" wire:model.lazy='mname' />
-                                    <x-input label="Last Name" placeholder="last name" wire:model.lazy='lname' />
+                                    <x-input label="First Name" placeholder="first name" wire:model='firstName' />
+                                    <x-input label="Middle Name" placeholder="middle name" wire:model='middleName' />
+                                    <x-input label="Last Name" placeholder="last name" wire:model='lastName' />
                                 </div>
-                                <div class="grid gap-2 md:grid-cols-2">
+                                <div class="grid gap-2 md:grid-cols-3">
                                     <x-select
                                         label="Department"
-                                        wire:model.defer="department"
+                                        wire:model.defer="model"
                                         placeholder="Select department"
                                         :async-data="route('api.department.references')"
                                         option-label="name"
                                         option-value="id"
+                                        wire:model.defer="department"
+                                    />
+                                    <x-select
+                                        label="Position"
+                                        wire:model.defer="model"
+                                        placeholder="Select Position"
+                                        :async-data="route('api.position.references')"
+                                        option-label="name"
+                                        option-value="id"
+                                        wire:model.defer="position"
                                     />
                                     <x-select
                                         label="Role"
-                                        wire:model.defer="model"
-                                        placeholder="Select some user"
-                                        option-label="name"
-                                        option-value="id"
+                                        placeholder="Select Role"
+                                        :options="['Admin', 'User']"
+                                        wire:model.defer="role"
                                     />
                                 </div>
                             </div>

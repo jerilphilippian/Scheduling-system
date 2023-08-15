@@ -30,7 +30,7 @@ class UserTable extends DataTableComponent
                 ->sortable(),
             Column::make("Department", "user_data.department.name")
                 ->sortable(),
-            Column::make("Position", "user_data.position")
+            Column::make("Position", "user_data.position.name")
                 ->sortable(),
             Column::make("Created at", "created_at")
                 ->sortable(),
