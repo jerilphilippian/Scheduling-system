@@ -87,4 +87,5 @@ class EventsTable extends DataTableComponent
     public function openEditModal($id){
         dd('test');
     }
+
 }

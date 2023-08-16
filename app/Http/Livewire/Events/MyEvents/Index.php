@@ -116,6 +116,10 @@ class Index extends Component
         $this->reset(['addEventModal', 'editEventModal']);
     }
 
+    // public function resetField(){
+    //     $this->reset(['addEventModal', 'editEventModal']);
+    // }
+
     public function render()
     {
         return view('livewire.events.my-events.index');

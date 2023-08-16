@@ -6,6 +6,7 @@
         <!-- BREADCRUMBS -->
         <nav class="text-black">
            <ol class="inline-flex gap-1 p-0 text-white list-none">
+           <ol class="inline-flex gap-1 p-0 text-white list-none">
               <li class="flex items-end ">
                  <p class="">Events</p>
               </li>
