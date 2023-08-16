@@ -4,7 +4,7 @@
         <!-- Main -->
         <main class="flex flex-col flex-1 ">
             <div class="grid justify-between grid-cols-1 gap-6 mb-6 md:grid-cols-1 xl:grid-cols-3 animate__animated animate__bounceInUp">
-                <div class="bg-white"
+                <div class="bg-white transition duration-300 ease-in-out hover:-translate-y-6"
                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);">
                     <div class="flex justify-between mx-3">
                         <div class="flex text-base font-medium text-gray-600">Total Number of Users</div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white"
+                <div class="bg-white transition duration-300 ease-in-out hover:-translate-y-6"
                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);">
                     <div class="flex justify-between mx-3">
                         <div class="flex items-center text-base font-medium text-gray-600">Total Number of Rooms
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white"
+                <div class="bg-white transition duration-300 ease-in-out hover:-translate-y-6"
                     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);">
                     <div class="flex justify-between mx-3">
                         <div class="flex items-center text-base font-medium text-gray-600">Total Number of Events Today</div>

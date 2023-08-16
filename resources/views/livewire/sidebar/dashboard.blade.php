@@ -80,7 +80,7 @@
       {{-- <div class="flex-shrink-0 py-4">
         <i class="text-xl text-red-800 fa-solid fa-user"></i>
       </div> --}}
-      <div class="flex flex-col items-center flex-1 p-2 space-y-4">
+      <div class="animation duration-700 ease-in-out hover:-translate-y-2 flex flex-col items-center flex-1 p-2 space-y-4">
         <!-- Menu button -->
         <button @click="(isSidebarOpen && currentSidebarTab == 'linksTab') ? isSidebarOpen = false : isSidebarOpen = true; currentSidebarTab = 'linksTab'" class="p-2 transition-colors rounded-lg shadow-md hover:bg-[#860909] hover:text-white focus:outline-none focus:ring focus:[#860909] focus:ring-offset-white focus:ring-offset-2"
           :class="(isSidebarOpen && currentSidebarTab == 'linksTab') ? 'text-white bg-[#860909]' : 'text-gray-500 bg-white'">
@@ -127,9 +127,9 @@
       </div>
 
       <!-- User avatar -->
-      <div class="relative flex items-center flex-shrink-0 p-2" x-data="{ isOpen: false }">
+      <div class="animation duration-700 ease-in-out hover:-translate-y-2 relative flex items-center flex-shrink-0 p-2" x-data="{ isOpen: false }">
         <button  @click="isOpen = !isOpen;" class="group py-2 px-3 transition-colors rounded-lg shadow-md hover:bg-[#860909] focus:outline-none">
-            <i class="text-lg fa-solid fa-gear text-[#6b7280] group-hover:text-white"></i>
+            <i class="hover:animate-spin text-lg fa-solid fa-gear text-[#6b7280] group-hover:text-white"></i>
         </button>
         <div
           x-show="isOpen"
