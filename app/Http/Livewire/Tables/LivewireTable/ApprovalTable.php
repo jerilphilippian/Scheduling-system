@@ -37,23 +37,14 @@ class ApprovalTable extends DataTableComponent
                 ->sortable(),
             Column::make("Status", "status")
                 ->sortable(),
-            ButtonGroupColumn::make('Actions')
-                ->attributes(function($row) {
-                    return [
-                        'class' => 'space-x-2',
-                    ];
-                })
-                ->buttons([
-                    LinkColumn::make('View')
-                        ->title(fn($row) => 'View ')
-                        ->location(fn($row) => route('approval.view', $row->id))
-                        ->attributes(function($row) {
-                            return [
-                                'class' => 'py-[8px] px-[16px] bg-[#374151] text-white rounded',
-                            ];
-                        }),
+            Column::make('Actions')
+                ->label(
+                    fn($row, Column $column) => view('layouts.components.buttons.approval-table-button')
+                    ->withRow($row)
+                )
+                ->html()
+            ];
 
-                ]),
-        ];
+
     }
 }
