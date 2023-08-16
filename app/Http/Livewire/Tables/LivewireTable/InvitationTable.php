@@ -24,7 +24,7 @@ class InvitationTable extends DataTableComponent
     {
         //return Event::query()->select('events.*')->with(['room'])->where('is_approved', 1);
         //return User::query()->with(['user_data', 'user_data.department'])
-        return Event::query()->has('invitations');
+        return Event::query()->has('invitations')->where('is_approved', 1);
     }
 
     public function columns(): array

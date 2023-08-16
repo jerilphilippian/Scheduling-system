@@ -3,6 +3,8 @@
 //DASHBOARD
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Livewire\Approval\Approve;
+use App\Http\Livewire\Approval\Decline;
 use App\Http\Livewire\Approval\Index as ApprovalIndex;
 use App\Http\Livewire\Approval\View as ApprovalView;
 use App\Http\Livewire\Dashboard\Index;
@@ -66,6 +68,8 @@ Route::prefix('invitation')->name('invitation.')->group(function () {
 Route::prefix('approval')->name('approval.')->group(function () {
     Route::get('/', ApprovalIndex::class)->name('index');
     Route::get('/view/{id}', ApprovalView::class)->name('view');
+    Route::get('approve/{id}', Approve::class)->name('approve');
+    Route::get('decline/{id}', Decline::class)->name('decline');
 });
 
 // user management
