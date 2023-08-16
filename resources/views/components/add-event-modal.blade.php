@@ -5,7 +5,7 @@
                 <x-input icon="calendar" label="Event Name" wire:model.lazy='eventName' />
             </div>
             <div>
-                <x-select label="Event Type" wire:model.defer="eventType" placeholder="Select some user"
+                <x-select label="Event Type" wire:model.defer="eventType"
                     :async-data="route('api.eventtypes.references')" option-label="type" option-value="id"
                     x-on:selected="id" />
             </div>

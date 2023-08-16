@@ -17,4 +17,5 @@ class Roles extends Model
     protected $casts = [
         'restrictions' => AsCollection::class
     ];
+
 }
