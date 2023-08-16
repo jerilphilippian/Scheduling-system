@@ -20,14 +20,14 @@ class View extends Component
     public function mount($id){
 
         $eventData = Event::find($id);
-        dd($eventData);
+        // dd($eventData);
         $this->eventTitle = $eventData->name;
         $this->eventOrganizer = $eventData->name;
         $this->eventDate = $eventData->event_date;
         $this->eventStartTime = Carbon::parse($eventData->start_time)->format('g:i A');
         $this->eventEndTime = Carbon::parse($eventData->end_time)->format('g:i A');
         $this->eventDesc = $eventData->event_description;
-        $this->eventOrganizer = $eventData->user->name;
+        // $this->eventOrganizer = $eventData->user->name;
     }
 
     public function render()

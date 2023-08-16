@@ -31,7 +31,7 @@
 
             {{-- add department modal --}}
             <x-modal.card title="Add Department" blur wire:model.defer="departmentAddModal">
-                <form wire:submit.prevent="saveDepartment">
+                <div>
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div class="col-span-1 sm:col-span-2">
                             <x-input label="Department name" wire:model.lazy='departmentName' />
@@ -41,29 +41,29 @@
 
                     <x-slot name="footer">
                         <div class="flex items-center justify-end">
-                            <x-button red label="Save" type="submit" />
+                            <x-button red label="Save" wire:click='saveDepartment' />
                         </div>
                     </x-slot>
-                </form>
+                </div>
             </x-modal.card>
             {{-- add department modal --}}
 
             {{-- edit department modal --}}
             <x-modal.card title="Edit Department" blur wire:model.defer="departmentEditModal">
-                <form wire:submit.prevent="updateDepartment">
+                <div>
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div class="col-span-1 sm:col-span-2">
-                            <x-input label="Department name" wire:model.lazy='departmentName' />
+                            <x-input label="Department name" wire:model.lazy='editDepartmentName' />
                         </div>
                     </div>
 
 
                     <x-slot name="footer">
                         <div class="flex items-center justify-end">
-                            <x-button red label="Save" type="submit" />
+                            <x-button red label="Save" wire:click='updateDepartment' />
                         </div>
                     </x-slot>
-                </form>
+                </div>
             </x-modal.card>
             {{-- edit department modal --}}
 

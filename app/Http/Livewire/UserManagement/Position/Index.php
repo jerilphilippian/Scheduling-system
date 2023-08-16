@@ -63,11 +63,11 @@ class Index extends Component
     }
     // save position to database
 
-    public function editPosition(){
+    public function editPositionData(){
         try {
             DB::beginTransaction();
             $position = Position::find($this->positionID);
-            $position->name = $this->position;
+            $position->name = $this->editPosition;
             if($position->save()){
                 DB::commit();
                 $this->resetInput();
