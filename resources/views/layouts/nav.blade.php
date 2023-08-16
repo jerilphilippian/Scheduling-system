@@ -27,17 +27,17 @@
     <div class="flex flex-row gap-4 mr-5">
     <div class="mt-1">
         <button
-      @click="(isSidebarOpen && currentSidebarTab == 'notificationsTab') ? isSidebarOpen = false : isSidebarOpen = true; currentSidebarTab = 'notificationsTab'" class="p-2 transition-colors rounded-lg shadow-md hover:bg-[#860909] hover:text-white focus:outline-none focus:ring focus:bg-[#860909] focus:ring-offset-white focus:ring-offset-2"
-      :class="(isSidebarOpen && currentSidebarTab == 'notificationsTab') ? 'text-white bg-[#860909]' : 'text-gray-500 bg-white'">
+      @click="(isSidebarOpen && currentSidebarTab == 'notificationsTab') ? isSidebarOpen = false : isSidebarOpen = true; currentSidebarTab = 'notificationsTab'" class="p-2 transition-colors rounded-lg hover:text-black focus:outline-none "
+      :class="(isSidebarOpen && currentSidebarTab == 'notificationsTab') ? 'text-black' : 'text-gray-500 bg-white'">
         <span class="relative flex w-3 h-1">
             <span class="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-sky-400"></span>
-            <span class="relative inline-flex w-3 h-3 rounded-full bg-sky-500"></span>
+            <span class="relative inline-flex w-3 h-3 rounded-full bg-sky-400"></span>
             <span class="sr-only">Toggle notifications panel</span>
         </span>
 
       <svg
         aria-hidden="true"
-        class="w-5 h-5"
+        class="w-7 h-7 hover:animate-[wiggle_0.2s_ease-in-out_infinite]"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"

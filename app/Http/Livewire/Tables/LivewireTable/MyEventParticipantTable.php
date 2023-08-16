@@ -14,6 +14,7 @@ class MyEventParticipantTable extends DataTableComponent
 
     public function configure(): void
     {
+        $this->setEmptyMessage('No results found...');
         $this->setPrimaryKey('id');
     }
 

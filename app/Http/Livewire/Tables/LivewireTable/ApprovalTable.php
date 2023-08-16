@@ -16,6 +16,7 @@ class ApprovalTable extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id');
+        $this->setEmptyMessage('No results found...');
     }
 
     public function builder(): Builder

@@ -1,17 +1,17 @@
 <ul class="inline-flex items-center gap-6 px-5 py-3 mt-2 mb-2 text-xs font-semibold tracking-wider text-red-900 bg-white rounded-md shadow">
-    <a href="{{ route('events.index') }}" class="relative nav active">
+    <a href="{{ route('events.index') }}" class="relative nav active transition duration-300 ease-in-out hover:-translate-y-1">
         <li class="font-bold capitalize">All Events</li>
         <div class="nav-underline"></div>
     </a>
-    <a href="{{route('my-events.index')}}" class="relative nav">
+    <a href="{{route('my-events.index')}}" class="relative nav transition duration-300 ease-in-out hover:-translate-y-1">
         <li class="font-bold capitalize">My Events</li>
         <div class="nav-underline"></div>
     </a>
-    <a href="{{route('invitation.index')}}" class="relative nav">
+    <a href="{{route('invitation.index')}}" class="relative nav transition duration-300 ease-in-out hover:-translate-y-1">
         <li class="font-bold capitalize">Invitations</li>
         <div class="nav-underline"></div>
     </a>
-    <a href="{{route('approval.index')}}" class="relative nav">
+    <a href="{{route('approval.index')}}" class="relative nav transition duration-300 ease-in-out hover:-translate-y-1">
         <li class="font-bold capitalize">Approval</li>
         <div class="nav-underline"></div>
     </a>
