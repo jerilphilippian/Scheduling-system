@@ -19,19 +19,19 @@ class MyEventParticipantTable extends DataTableComponent
 
     public function builder(): Builder
     {
-        // dd(EventUser::query()->where('event_id', 8)->with(['user'])->get());
-        return EventUser::query()->where('event_id', 8)->with('user');
+        // dd(EventUser::query()->where('event_id', request()->id)->with('user')->get());
+        return EventUser::query()->where('event_id', request()->id)->with('user');
     }
 
     public function columns(): array
     {
         return [
-            Column::make("ID", "id")
-            ->sortable(),
             Column::make("Participant Name", "user.name")
-            ->sortable(),
+                ->sortable(),
             Column::make("Department", "user.user_data.department.name")
-            ->sortable()
+                ->sortable(),
+            Column::make("Position", "user.user_data.position.name")
+                ->sortable()
         ];
     }
 }

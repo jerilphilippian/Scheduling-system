@@ -52,14 +52,14 @@
                 <div>
                     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div class="col-span-1 sm:col-span-2">
-                            <x-input label="Department name" wire:model.lazy='editPosition' />
+                            <x-input label="Position name" wire:model.lazy='editPosition' />
                         </div>
                     </div>
 
 
                     <x-slot name="footer">
                         <div class="flex items-center justify-end">
-                            <x-button red label="Save" wire:click='editPosition' />
+                            <x-button red label="Save" wire:click='editPositionData' />
                         </div>
                     </x-slot>
                 </div>

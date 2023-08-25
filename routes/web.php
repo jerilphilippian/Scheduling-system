@@ -3,6 +3,7 @@
 //DASHBOARD
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\EventsController;
 use App\Http\Livewire\Approval\Index as ApprovalIndex;
 use App\Http\Livewire\Approval\View as ApprovalView;
 use App\Http\Livewire\Dashboard\Index;
@@ -23,6 +24,7 @@ use App\Http\Livewire\UserManagement\Edit as UserManagementEdit;
 use App\Http\Livewire\UserManagement\Position\Index as PositionIndex;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\UserManagement\Roles\Index as RoleIndex;
+use Livewire\Livewire;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
@@ -94,3 +96,7 @@ Route::prefix('position')->name('position.')->group(function () {
 // Route::get('/user-management', UserManagementIndex::class)->name('user-management');
 Route::get('/room', RoomIndex::class)->name('room');
 Route::get('/profile', ProfileIndex::class)->name('profile');
+
+
+// event api
+Route::get('/get-events', [EventsController::class, 'index'])->name('api.events-list');

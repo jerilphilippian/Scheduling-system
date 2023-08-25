@@ -48,10 +48,26 @@ class EventsTable extends DataTableComponent
             Column::make("Status", "status")
                 ->sortable(),
             Column::make('Action')
-                ->label(
-                    fn ($row, Column $column)  => Blade::render('<x-button red label="Edit Event" wire:click="$emitUp(\'editModal\' ,' . $row->id . ')" />')
-                )
-                ->html(),
+                    ->label(
+                        fn ($row, Column $column)  => Blade::render('<x-button red label="Edit Event" wire:click="$emitUp(\'editModal\' ,' . $row->id . ')" />')
+                    )
+                    ->html(),
+            ButtonGroupColumn::make('Actions')
+                ->attributes(function($row) {
+                    return [
+                        'class' => 'space-x-2',
+                    ];
+                })->buttons([
+                    LinkColumn::make('View')
+                        ->title(fn($row) => 'View ')
+                        ->location(fn($row) => route('my-events.view', $row->id))
+                        ->attributes(function($row) {
+                            return [
+                                'class' => 'underline text-blue-500 hover:no-underline',
+                                // 'wire:click' => 'openEditModal({{'.$row->id.'}})'
+                            ];
+                        }),
+                ])
             // ButtonGroupColumn::make('Actions')
             //     ->attributes(function ($row) {
             //         return [

@@ -5,13 +5,17 @@ namespace App\Http\Livewire\UserManagement\Department;
 use App\Models\Department;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use WireUi\Traits\Actions;
 
 class Index extends Component
 {
 
+    use Actions;
+
     public $departmentAddModal = false;
     public $departmentEditModal = false;
     public $departmentName;
+    public $editDepartmentName;
     public $departmentID;
 
     protected $listeners = ['editRoles'=>'editRolesModal'];
@@ -26,7 +30,7 @@ class Index extends Component
     public function editRolesModal($id){
         $this->departmentEditModal = true;
         $department = Department::find($id);
-        $this->departmentName = $department->name;
+        $this->editDepartmentName = $department->name;
         $this->departmentID = $id;
     }
     // open edit department modal
@@ -41,10 +45,18 @@ class Index extends Component
             if($dapartment->save()){
                 DB::commit();
                 $this->resetInput();
-                $this->emit('refreshDatatable');
+                $this->dialog()->show([
+                    'title'       => 'Department saved!',
+                    'description' => 'New Department was successfully added',
+                    'icon'        => 'success'
+                ]);
             }else{
                 DB::rollBack();
-                dd('Save department failed');
+                $this->dialog()->show([
+                    'title'       => 'Save failed',
+                    'description' => 'New Department was failed to be added',
+                    'icon'        => 'error'
+                ]);
             }
         } catch (\Throwable $th) {
             DB::rollBack();
@@ -59,15 +71,23 @@ class Index extends Component
         try {
             DB::beginTransaction();
             $department = Department::find($this->departmentID);
-            $department->name = $this->departmentName;
+            $department->name = $this->editDepartmentName;
 
             if($department->save()){
                 DB::commit();
-                $this->emit('refreshDatatable');
-                $this->reset('departmentEditModal');
+                $this->resetInput();
+                $this->dialog()->show([
+                    'title'       => 'Department updated!',
+                    'description' => 'Department was successfully updated',
+                    'icon'        => 'success'
+                ]);
             }else{
                 DB::rollBack();
-                dd('Failed to update');
+                $this->dialog()->show([
+                    'title'       => 'Updated failed!',
+                    'description' => 'Department update failed',
+                    'icon'        => 'error'
+                ]);
             }
         } catch (\Throwable $th) {
             DB::rollBack();
@@ -77,7 +97,8 @@ class Index extends Component
     // update department
 
     public function resetInput(){
-        $this->reset(['departmentName', 'departmentAddModal']);
+        $this->reset(['departmentName', 'departmentAddModal', 'departmentEditModal']);
+        $this->emit('refreshDatatable');
     }
 
     // open edit modal
